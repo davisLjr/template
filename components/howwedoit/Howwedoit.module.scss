@@ -1,0 +1,303 @@
+@use '../../styles/variables' as *;
+
+.howWeDoIt {
+  padding: 3rem 2rem;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+// Subtítulo con líneas
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+
+  .line {
+    width: 60px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.3;
+    
+    @media (max-width: 768px) {
+      width: 40px;
+    }
+  }
+
+  .text {
+    @include subheading-medium;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $primary-purple;
+  }
+}
+
+// Título principal
+.title {
+  @include heading-extrabold;
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: $light-text;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Descripción
+.description {
+  @include body-text;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #666;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+}
+
+// Timeline principal
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+// Paso individual
+.processStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  max-width: 220px;
+  
+  @media (max-width: 768px) {
+    max-width: 300px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+// Círculo numerado
+.stepCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 15px $purple-opacity-30;
+  
+  span {
+    @include heading;
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+}
+
+// Línea conectora horizontal
+.stepLine {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  width: calc(100% + 50px);
+  height: 2px;
+  background: linear-gradient(90deg, $purple-opacity-30, $purple-opacity-10);
+  z-index: 1;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// Contenido del paso
+.stepContent {
+  text-align: center;
+  
+  @media (max-width: 768px) {
+    text-align: left;
+    flex: 1;
+  }
+}
+
+// Título del paso
+.stepTitle {
+  @include heading-semibold;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: $light-text;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+}
+
+// Descripción del paso
+.stepDescription {
+  @include body-text;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  opacity: 0.9;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+}
+
+// Hover effects
+.processStep:hover {
+  .stepCircle {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px $purple-opacity-40;
+    transition: all 0.3s ease;
+  }
+  
+  .stepTitle {
+    color: $primary-purple;
+    transition: color 0.3s ease;
+  }
+}
+
+// Dark theme support
+:global(body.dark) {
+  .title {
+    color: $dark-text;
+  }
+  
+  .subtitle .text {
+    color: $primary-purple-dark;
+  }
+  
+  .description {
+    color: #cccccc;
+  }
+  
+  .stepTitle {
+    color: $dark-text;
+  }
+  
+  .stepDescription {
+    color: #cccccc;
+    opacity: 1;
+  }
+  
+  .stepCircle {
+    background: linear-gradient(135deg, $purple-gradient-start-dark, $purple-gradient-end-dark);
+    box-shadow: 0 4px 15px $purple-opacity-30-dark;
+  }
+  
+  .stepLine {
+    background: linear-gradient(90deg, $purple-opacity-30-dark, $purple-opacity-10-dark);
+  }
+  
+  .processStep:hover {
+    .stepCircle {
+      box-shadow: 0 6px 20px $purple-opacity-40-dark;
+    }
+    
+    .stepTitle {
+      color: $primary-purple-dark;
+    }
+  }
+}
+
+// Responsive adjustments para tablets
+@media (max-width: 1024px) {
+  .timeline {
+    max-width: 900px;
+  }
+  
+  .processStep {
+    max-width: 200px;
+  }
+  
+  .stepDescription {
+    font-size: 0.9rem;
+  }
+}
+
+// Responsive adjustments para móviles pequeños
+@media (max-width: 480px) {
+  .howWeDoIt {
+    padding: 3rem 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+  }
+  
+  .timeline {
+    gap: 2.5rem;
+  }
+  
+  .stepCircle {
+    width: 45px;
+    height: 45px;
+    
+    span {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .stepContent {
+    .stepTitle {
+      font-size: 1.1rem;
+    }
+    
+    .stepDescription {
+      font-size: 0.85rem;
+    }
+  }
+}

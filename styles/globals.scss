@@ -1,0 +1,78 @@
+// Importar variables y mixins
+@use './variables' as *;
+
+// ========================================
+// RESET CSS BÁSICO
+// ========================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100vw;
+  @include body-text;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// ========================================
+// TEMAS LIGHT Y DARK
+// ========================================
+
+body.light {
+  background-color: $light-bg;
+  color: $light-text;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: $dark-bg;
+  color: $dark-text;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

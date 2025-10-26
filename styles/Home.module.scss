@@ -1,0 +1,119 @@
+@import './variables';
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.main {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  @include heading-extrabold;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.subtitle {
+  @include subheading;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+.description {
+  @include body-text;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.themeToggle {
+  @include body-text-medium;
+  background-color: rgba(128, 128, 128, 0.2);
+  border: 2px solid currentColor;
+  color: inherit;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 3rem;
+
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.3);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature {
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: rgba(128, 128, 128, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.15);
+    transform: translateY(-4px);
+  }
+
+  h3 {
+    @include subheading;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    @include body-text;
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+}
+
+.section {
+  margin-top: 5rem;
+  padding: 3rem 2rem;
+  width: 100%;
+}
+
+.sectionTitle {
+  @include subheading;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}

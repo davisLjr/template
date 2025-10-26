@@ -1,0 +1,283 @@
+@use '../../styles/variables' as *;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.closing {
+    animation: fadeOut 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  // Efecto glass con blur intenso
+  background: rgb(255 255 255 / 92%);
+  backdrop-filter: blur(145px);
+  -webkit-backdrop-filter: blur(145px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+  // GPU acceleration
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.closing {
+    animation: slideDown 0.35s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  }
+
+  // Scrollbar personalizado
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $purple-opacity-50;
+    border-radius: 10px;
+
+    &:hover {
+      background: $purple-opacity-70;
+    }
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) translateZ(0) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0) scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0) translateZ(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px) translateZ(0) scale(0.95);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #222;
+  transition: all 0.3s ease;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+  }
+
+  &:active {
+    transform: rotate(90deg) scale(0.9);
+  }
+}
+
+.content {
+  padding: 3rem 2.5rem;
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+.title {
+  @include heading;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  padding-right: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
+}
+
+.description {
+  @include body-text;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.includesSection {
+  margin-bottom: 2.5rem;
+}
+
+.includesTitle {
+  @include heading-semibold;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: $primary-purple;
+}
+
+.includesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.includesItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    color: $primary-purple;
+  }
+
+  span {
+    @include body-text;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.button {
+  @include body-text-semibold;
+  flex: 1;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  &.primary {
+    background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+    color: white;
+    box-shadow: 0 4px 15px $purple-opacity-30;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px $purple-opacity-40;
+      background: linear-gradient(135deg, $primary-purple-dark-hover, $primary-purple);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &.secondary {
+    background: white;
+    color: #d68700;
+    border: 2px solid $primary-purple;
+
+    &:hover {
+      background: $purple-opacity-08;
+      border-color: $primary-purple-hover;
+      color: #c47900;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Dark theme support
+:global(body.dark) {
+  .modal {
+    background: rgba(20, 20, 20, 0.7);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .closeButton {
+    color: #ffffff;
+  }
+
+  .title {
+    color: #ffffff;
+  }
+
+  .description {
+    color: #cccccc;
+  }
+
+  .includesItem span {
+    color: #cccccc;
+  }
+}

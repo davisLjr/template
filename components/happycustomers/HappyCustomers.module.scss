@@ -1,0 +1,236 @@
+@use '../../styles/variables' as *;
+
+.happyCustomers {
+  padding: 2rem 2rem;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $purple-opacity-02, $purple-opacity-05);
+  
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+// Subtítulo con líneas
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+
+  .line {
+    width: 60px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.3;
+    
+    @media (max-width: 768px) {
+      width: 40px;
+    }
+  }
+
+  .text {
+    @include subheading-medium;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $primary-purple;
+  }
+}
+
+// Título principal
+.title {
+  @include heading-extrabold;
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: $light-text;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+// Container de estadísticas
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+// Card de estadística
+.statCard {
+  position: relative;
+  text-align: center;
+  padding: 2rem 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statValue {
+  @include heading-extrabold;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  color: $light-text;
+  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  @media (max-width: 768px) {
+    font-size: 2.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
+}
+
+.statLabel {
+  @include body-text;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+}
+
+.statDot {
+  width: 8px;
+  height: 8px;
+  background: $primary-purple;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: $purple-opacity-20;
+    border-radius: 50%;
+    animation: pulse 2s infinite ease-in-out;
+  }
+}
+
+// Animación de pulso
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+// Hover effects
+.statCard:hover {
+  .statValue {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .statDot {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+  }
+}
+
+// Dark theme support
+:global(body.dark) {
+  .happyCustomers {
+    background: linear-gradient(135deg, $purple-opacity-05, $purple-opacity-08);
+  }
+  
+  .title {
+    color: $dark-text;
+  }
+  
+  .subtitle .text {
+    color: $primary-purple-dark;
+  }
+  
+  .statValue {
+    color: $dark-text;
+    background: linear-gradient(135deg, $purple-gradient-start-dark, $purple-gradient-end-dark);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .statLabel {
+    color: #cccccc;
+    opacity: 1;
+  }
+  
+  .statDot {
+    background: $primary-purple-dark;
+    
+    &::before {
+      background: $purple-opacity-20-dark;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 1024px) {
+  .statsContainer {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .statCard {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statValue {
+    font-size: 2.2rem;
+  }
+  
+  .statLabel {
+    font-size: 0.85rem;
+  }
+}

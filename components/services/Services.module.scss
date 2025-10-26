@@ -1,0 +1,207 @@
+@use '../../styles/variables' as *;
+
+.services {
+  padding: 6rem 2rem;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+// Subtítulo con líneas
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+
+  .line {
+    width: 60px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.3;
+
+    @media (max-width: 768px) {
+      width: 40px;
+    }
+  }
+
+  .text {
+    @include subheading-medium;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $primary-purple;
+  }
+}
+
+// Título principal
+.title {
+  @include heading-extrabold;
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: $light-text;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+// Container de cards
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+// Card con efecto glass
+.card {
+  position: relative;
+  padding: 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+
+  // GPU acceleration
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  &:hover {
+    transform: translateY(-8px) translateZ(0);
+    box-shadow: 0 16px 48px $purple-opacity-15;
+    border-color: $purple-opacity-30;
+  }
+}
+
+.iconWrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $purple-opacity-10, $purple-opacity-05);
+  border-radius: 16px;
+  color: $primary-purple;
+  transition: all 0.3s ease;
+
+  .card:hover & {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, $purple-opacity-20, $purple-opacity-10);
+  }
+}
+
+.cardTitle {
+  @include heading-semibold;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: $light-text;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+}
+
+.cardDescription {
+  @include body-text;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #555;
+  opacity: 0.9;
+}
+
+.cardButton {
+  @include body-text-semibold;
+  width: 100%;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px $purple-opacity-30;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px $purple-opacity-40;
+    background: linear-gradient(135deg, $primary-purple-dark-hover, $primary-purple);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Dark theme support
+:global(body.dark) {
+  .title {
+    color: $dark-text;
+  }
+
+  .subtitle .text {
+    color: $primary-purple-dark;
+  }
+
+  .cardTitle {
+    color: $dark-text;
+  }
+
+  .cardDescription {
+    color: #cccccc;
+    opacity: 1;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: $purple-opacity-50;
+      box-shadow: 0 16px 48px $purple-opacity-25;
+    }
+  }
+
+  .iconWrapper {
+    background: linear-gradient(135deg, $purple-opacity-20, $purple-opacity-10);
+
+    .card:hover & {
+      background: linear-gradient(135deg, $purple-opacity-30, $purple-opacity-15);
+    }
+  }
+}

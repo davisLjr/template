@@ -1,0 +1,319 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  position: relative;
+  width: 100%;
+  padding: 4rem 2rem 2rem;
+  margin-top: 6rem;
+  overflow: hidden;
+
+  // Glassmorphism background
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  // Yellow-Orange blur effect (same as Hero)
+  &::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 85% 15%,                  // focus top right
+      $purple-blur-strong 0%,             // bright center
+      $purple-blur-medium 10%,            // strong transition
+      $purple-blur-light 25%,             // cooler tone
+      $purple-blur-faded 40%,             // faded
+      transparent 60%                      // completely dissolve
+    );
+    filter: blur(60px);
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem 1.5rem;
+    margin-top: 4rem;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logo {
+  @include heading-semibold;
+  font-size: 1.8rem;
+  color: $light-text;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  @include body-text;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #222;
+  max-width: 300px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $purple-opacity-10;
+  border: 1px solid $purple-opacity-20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary-purple;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $primary-purple;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px $purple-opacity-30;
+  }
+}
+
+.columnTitle {
+  @include heading-semibold;
+  font-size: 1.1rem;
+  color: $light-text;
+  margin-bottom: 0.5rem;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  li {
+    a,
+    button {
+      @include body-text;
+      font-size: 0.95rem;
+      color: #222;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+      padding-bottom: 2px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: $primary-purple;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: $primary-purple;
+        transform: translateX(5px);
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  li {
+    @include body-text;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: #222;
+
+    svg {
+      color: $primary-purple;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.bottomBar {
+  padding-top: 2rem;
+  border-top: 1px solid $purple-opacity-10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 1.5rem;
+  }
+}
+
+.copyright {
+  @include body-text;
+  font-size: 0.9rem;
+  color: #222;
+  margin: 0;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  a {
+    @include body-text;
+    font-size: 0.9rem;
+    color: #222;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $primary-purple;
+    }
+  }
+
+  .separator {
+    color: #222;
+    opacity: 0.5;
+  }
+}
+
+// Dark theme support
+:global(body.dark) {
+  .footer {
+    background: rgba(30, 30, 30, 0.5);
+    border-top: 1px solid $purple-opacity-20-dark;
+
+    &::before {
+      background: radial-gradient(
+        circle at 85% 15%,
+        $purple-blur-strong-dark 0%,
+        $purple-blur-medium-dark 10%,
+        $purple-blur-light-dark 25%,
+        $purple-blur-faded-dark 40%,
+        transparent 60%
+      );
+    }
+  }
+
+  .logo,
+  .columnTitle {
+    color: $dark-text;
+  }
+
+  .description,
+  .copyright {
+    color: #b0b0b0;
+  }
+
+  .linkList li a,
+  .linkList li button {
+    color: #b0b0b0;
+
+    &:hover {
+      color: $primary-purple-dark;
+    }
+
+    &::after {
+      background: $primary-purple-dark;
+    }
+  }
+
+  .contactList li {
+    color: #b0b0b0;
+
+    svg {
+      color: $primary-purple-dark;
+    }
+  }
+
+  .socialIcon {
+    background: $purple-opacity-15-dark;
+    border: 1px solid $purple-opacity-30-dark;
+    color: $primary-purple-dark;
+
+    &:hover {
+      background: $primary-purple-dark;
+      color: white;
+      box-shadow: 0 6px 20px $purple-opacity-40-dark;
+    }
+  }
+
+  .bottomBar {
+    border-top: 1px solid $purple-opacity-15-dark;
+  }
+
+  .legalLinks a {
+    color: #b0b0b0;
+
+    &:hover {
+      color: $primary-purple-dark;
+    }
+  }
+
+  .legalLinks .separator {
+    color: #b0b0b0;
+  }
+}

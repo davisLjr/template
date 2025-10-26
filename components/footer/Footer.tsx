@@ -1,0 +1,87 @@
+"use client";
+import styles from "./Footer.module.scss";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { useServiceModal } from "@/contexts/ServiceModalContext";
+
+export const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  const { openServiceModal } = useServiceModal();
+
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          {/* Company Info */}
+          <div className={styles.column}>
+            <h3 className={styles.logo}>Celpi-cl</h3>
+            <p className={styles.description}>
+              Soluciones contables profesionales para impulsar tu negocio con creatividad y estrategia.
+            </p>
+            <div className={styles.socialLinks}>
+              <a href="#" aria-label="Facebook" className={styles.socialIcon}>
+                <Facebook size={20} />
+              </a>
+              <a href="#" aria-label="Twitter" className={styles.socialIcon}>
+                <Twitter size={20} />
+              </a>
+              <a href="#" aria-label="Instagram" className={styles.socialIcon}>
+                <Instagram size={20} />
+              </a>
+              <a href="#" aria-label="LinkedIn" className={styles.socialIcon}>
+                <Linkedin size={20} />
+              </a>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div className={styles.column}>
+            <h4 className={styles.columnTitle}>Servicios</h4>
+            <ul className={styles.linkList}>
+              <li>
+                <button onClick={() => openServiceModal("contabilidad")}>
+                  Contabilidad Empresarial
+                </button>
+              </li>
+              <li>
+                <button onClick={() => openServiceModal("asesoria")}>
+                  Asesoría Tributaria
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className={styles.column}>
+            <h4 className={styles.columnTitle}>Contacto</h4>
+            <ul className={styles.contactList}>
+              <li>
+                <Mail size={18} />
+                <span>info@celpi-cl.com</span>
+              </li>
+              <li>
+                <Phone size={18} />
+                <span>+56 9 1234 5678</span>
+              </li>
+              <li>
+                <MapPin size={18} />
+                <span>Santiago, Chile</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className={styles.bottomBar}>
+          <p className={styles.copyright}>
+            &copy; {currentYear} Celpi-cl. Todos los derechos reservados.
+          </p>
+          <div className={styles.legalLinks}>
+            <a href="#privacidad">Política de Privacidad</a>
+            <span className={styles.separator}>•</span>
+            <a href="#terminos">Términos de Servicio</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};

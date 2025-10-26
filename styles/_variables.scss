@@ -1,0 +1,167 @@
+// ========================================
+// VARIABLES DE COLORES
+// ========================================
+
+// Light theme
+$light-bg: #ffffff;
+$light-text: #111111;
+
+// Dark theme
+$dark-bg: #111111;
+$dark-text: #ffffff;
+
+// ========================================
+// BRAND COLORS (Purple Theme)
+// ========================================
+
+// Primary Purple (Light Theme)
+// Primary Yellow-Orange
+$primary-purple: #f5a300;
+$primary-purple-hover: #e29200;
+
+// Primary Yellow-Orange (Dark Theme)
+$primary-purple-dark: #ffb733;
+$primary-purple-dark-hover: #ff9f00;
+
+// Secondary shades for gradients and effects
+$purple-gradient-start: #f5a300;
+$purple-gradient-end: #e29200;
+$purple-gradient-start-dark: #ffb733;
+$purple-gradient-end-dark: #ff9f00;
+
+// Yellow-Orange with opacity (for backgrounds and effects)
+$purple-blur-strong: rgba(245, 163, 0, 0.85);
+$purple-blur-medium: rgba(245, 163, 0, 0.65);
+$purple-blur-light: rgba(245, 163, 0, 0.4);
+$purple-blur-faded: rgba(180, 100, 0, 0.58);
+
+// Yellow-Orange with opacity for dark theme
+$purple-blur-strong-dark: rgba(255, 183, 51, 0.85);
+$purple-blur-medium-dark: rgba(255, 183, 51, 0.65);
+$purple-blur-light-dark: rgba(255, 159, 0, 0.4);
+$purple-blur-faded-dark: rgba(140, 70, 0, 0.58);
+
+// Common opacity variations (Light Theme)
+$purple-opacity-02: rgba(245, 163, 0, 0.02);
+$purple-opacity-05: rgba(245, 163, 0, 0.05);
+$purple-opacity-08: rgba(245, 163, 0, 0.08);
+$purple-opacity-10: rgba(245, 163, 0, 0.1);
+$purple-opacity-15: rgba(245, 163, 0, 0.15);
+$purple-opacity-20: rgba(245, 163, 0, 0.2);
+$purple-opacity-25: rgba(245, 163, 0, 0.25);
+$purple-opacity-30: rgba(245, 163, 0, 0.3);
+$purple-opacity-40: rgba(245, 163, 0, 0.4);
+$purple-opacity-50: rgba(245, 163, 0, 0.5);
+$purple-opacity-60: rgba(245, 163, 0, 0.6);
+$purple-opacity-70: rgba(245, 163, 0, 0.7);
+
+// Common opacity variations (Dark Theme)
+$purple-opacity-05-dark: rgba(255, 183, 51, 0.05);
+$purple-opacity-08-dark: rgba(255, 183, 51, 0.08);
+$purple-opacity-10-dark: rgba(255, 183, 51, 0.1);
+$purple-opacity-15-dark: rgba(255, 183, 51, 0.15);
+$purple-opacity-20-dark: rgba(255, 183, 51, 0.2);
+$purple-opacity-25-dark: rgba(255, 183, 51, 0.25);
+$purple-opacity-30-dark: rgba(255, 183, 51, 0.3);
+$purple-opacity-40-dark: rgba(255, 183, 51, 0.4);
+$purple-opacity-50-dark: rgba(255, 183, 51, 0.5);
+$purple-opacity-70-dark: rgba(255, 183, 51, 0.7);
+
+// ========================================
+// VARIABLES DE TIPOGRAFÍA
+// ========================================
+
+// Fuentes principales
+$font-heading: 'Poppins', sans-serif;      // Para títulos
+$font-subheading: 'Poppins', sans-serif;   // Para subtítulos
+$font-body: 'Inter', sans-serif;           // Para textos
+
+// Pesos de fuente (disponibles en Poppins e Inter: 100-900)
+$fw-thin: 100;
+$fw-extralight: 200;
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+$fw-black: 900;
+
+// ========================================
+// MIXINS
+// ========================================
+
+// Mixins para títulos (Poppins)
+@mixin heading {
+  font-family: $font-heading;
+  font-weight: $fw-bold;
+  line-height: 1.2;
+}
+
+@mixin heading-extrabold {
+  font-family: $font-heading;
+  font-weight: $fw-extrabold;
+  line-height: 1.2;
+}
+
+@mixin heading-black {
+  font-family: $font-heading;
+  font-weight: $fw-black;
+  line-height: 1.2;
+}
+
+@mixin heading-semibold {
+  font-family: $font-heading;
+  font-weight: $fw-semibold;
+  line-height: 1.2;
+}
+
+@mixin heading-medium {
+  font-family: $font-heading;
+  font-weight: $fw-medium;
+  line-height: 1.2;
+}
+
+// Mixins para subtítulos (Poppins)
+@mixin subheading {
+  font-family: $font-subheading;
+  font-weight: $fw-semibold;
+  line-height: 1.4;
+}
+
+@mixin subheading-medium {
+  font-family: $font-subheading;
+  font-weight: $fw-medium;
+  line-height: 1.4;
+}
+
+@mixin subheading-bold {
+  font-family: $font-subheading;
+  font-weight: $fw-bold;
+  line-height: 1.4;
+}
+
+// Mixins para texto de cuerpo (Inter)
+@mixin body-text {
+  font-family: $font-body;
+  font-weight: $fw-regular;
+  line-height: 1.6;
+}
+
+@mixin body-text-medium {
+  font-family: $font-body;
+  font-weight: $fw-medium;
+  line-height: 1.6;
+}
+
+@mixin body-text-semibold {
+  font-family: $font-body;
+  font-weight: $fw-semibold;
+  line-height: 1.6;
+}
+
+@mixin body-text-light {
+  font-family: $font-body;
+  font-weight: $fw-light;
+  line-height: 1.6;
+}

@@ -1,0 +1,222 @@
+@use '../../styles/variables' as *;
+
+.hero {
+  position: relative;
+  height: 75dvh;
+  min-height: 500px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+  padding: 0 10% 0 10%;
+
+  @media (max-width: 768px) {
+    height: 85dvh;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 15% 85%,               // foco de luz abajo a la izquierda
+      $purple-blur-strong 0%,          // centro muy brillante
+      $purple-blur-medium 10%,         // transicion violeta fuerte
+      $purple-blur-light 25%,          // tono violeta más frío
+      $purple-blur-faded 40%,          // desvanecido
+      transparent 10%                  // disuelve por completo
+    );
+    filter: blur(60px);                // difuminado más realista
+    opacity: 1;                        // más visible
+    z-index: 1;
+    pointer-events: none;
+    bottom: -80px;
+    left: -100px;
+  }
+  
+  
+
+  // Líneas verticales irregulares tipo ola - 70 líneas
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-image:
+      // Ola ascendente (líneas 1-10)
+      linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.40) 25%, transparent 25%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 35%, transparent 35%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.44) 0%, rgba(255, 255, 255, 0.44) 45%, transparent 45%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0.46) 58%, transparent 58%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.48) 70%, transparent 70%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 80%, transparent 80%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.52) 88%, transparent 88%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.53) 0%, rgba(255, 255, 255, 0.53) 92%, transparent 92%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.54) 0%, rgba(255, 255, 255, 0.54) 95%, transparent 95%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.52) 90%, transparent 90%),
+
+      // Pico (líneas 11-20)
+      linear-gradient(to top, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 85%, transparent 85%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.48) 78%, transparent 78%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0.46) 72%, transparent 72%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.44) 0%, rgba(255, 255, 255, 0.44) 65%, transparent 65%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 55%, transparent 55%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.40) 48%, transparent 48%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.38) 42%, transparent 42%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.36) 35%, transparent 35%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.34) 28%, transparent 28%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.32) 20%, transparent 20%),
+
+      // Segunda ola (líneas 21-40)
+      linear-gradient(to top, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 18%, transparent 18%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.32) 25%, transparent 25%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.35) 35%, transparent 35%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.38) 45%, transparent 45%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.40) 55%, transparent 55%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 65%, transparent 65%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.44) 0%, rgba(255, 255, 255, 0.44) 75%, transparent 75%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0.46) 82%, transparent 82%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.48) 88%, transparent 88%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 94%, transparent 94%),
+
+      // Más líneas para densidad (41-70)
+      linear-gradient(to top, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.52) 75%, transparent 75%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 68%, transparent 68%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.48) 60%, transparent 60%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0.46) 55%, transparent 55%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.44) 0%, rgba(255, 255, 255, 0.44) 48%, transparent 48%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 42%, transparent 42%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.40) 35%, transparent 35%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.38) 28%, transparent 28%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.36) 20%, transparent 20%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.34) 15%, transparent 15%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.32) 12%, transparent 12%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 9%, transparent 9%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.28) 7%, transparent 7%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.26) 5%, transparent 5%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 3%, transparent 3%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.40) 25%, transparent 25%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 45%, transparent 45%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.55) 65%, transparent 65%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.48) 85%, transparent 85%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 90%, transparent 90%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.40) 95%, transparent 95%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.38) 98%, transparent 98%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.36) 99%, transparent 99%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.34) 100%, transparent 100%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.32) 80%, transparent 80%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 60%, transparent 60%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.28) 40%, transparent 40%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.26) 25%, transparent 25%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.24) 15%, transparent 15%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.22) 8%, transparent 8%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 5%, transparent 5%),
+
+      linear-gradient(to top, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 18%, transparent 18%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.32) 25%, transparent 25%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.35) 35%, transparent 35%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.38) 45%, transparent 45%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.40) 55%, transparent 55%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 65%, transparent 65%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.44) 0%, rgba(255, 255, 255, 0.44) 75%, transparent 75%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0.46) 82%, transparent 82%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.48) 88%, transparent 88%),
+      linear-gradient(to top, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 94%, transparent 94%);
+      
+
+    background-size: 1px 100%;
+    background-position: repeat-x;
+    background-position:
+      0% 0, 1.4% 0, 2.8% 0, 4.2% 0, 5.6% 0, 7% 0, 8.4% 0, 9.8% 0, 11.2% 0, 12.6% 0,
+      14% 0, 15.4% 0, 16.8% 0, 18.2% 0, 19.6% 0, 21% 0, 22.4% 0, 23.8% 0, 25.2% 0, 26.6% 0,
+      28% 0, 29.4% 0, 30.8% 0, 32.2% 0, 33.6% 0, 35% 0, 36.4% 0, 37.8% 0, 39.2% 0, 40.6% 0,
+      42% 0, 43.4% 0, 44.8% 0, 46.2% 0, 47.6% 0, 49% 0, 50.4% 0, 51.8% 0, 53.2% 0, 54.6% 0,
+      56% 0, 57.4% 0, 58.8% 0, 60.2% 0, 61.6% 0, 63% 0, 64.4% 0, 65.8% 0, 67.2% 0, 68.6% 0,
+      70% 0, 71.4% 0, 72.8% 0, 74.2% 0, 75.6% 0, 77% 0, 78.4% 0, 79.8% 0, 81.2% 0, 82.6% 0,
+      84% 0, 85.4% 0, 86.8% 0, 88.2% 0, 89.6% 0, 91% 0, 92.4% 0, 93.8% 0, 95.2% 0, 96.6% 0;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.538);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: start;
+  max-width: 1200px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.pretitle {
+  display: block;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+
+  span {
+    color: $primary-purple;
+  }
+}
+
+.titleAccent {
+  font-weight: 800;
+  font-family: "Inter", sans-serif;
+  font-size: 4.2rem;
+  color: $primary-purple;
+
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+  }
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.button {
+  background: $primary-purple;
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $primary-purple-hover;
+    transform: translateY(-2px);
+  }
+}
