@@ -74,11 +74,11 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $purple-opacity-50;
+    background: $orange-opacity-50;
     border-radius: 10px;
 
     &:hover {
-      background: $purple-opacity-70;
+      background: $orange-opacity-70;
     }
   }
 }
@@ -168,7 +168,7 @@
   @include heading-semibold;
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: $primary-purple;
+  color: $primary-orange;
 }
 
 .includesList {
@@ -188,7 +188,7 @@
   svg {
     flex-shrink: 0;
     margin-top: 0.2rem;
-    color: $primary-purple;
+    color: $primary-orange;
   }
 
   span {
@@ -225,14 +225,14 @@
   }
 
   &.primary {
-    background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+    background: linear-gradient(135deg, $orange-gradient-start, $orange-gradient-end);
     color: white;
-    box-shadow: 0 4px 15px $purple-opacity-30;
+    box-shadow: 0 4px 15px $orange-opacity-30;
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px $purple-opacity-40;
-      background: linear-gradient(135deg, $primary-purple-dark-hover, $primary-purple);
+      box-shadow: 0 6px 20px $orange-opacity-40;
+      background: linear-gradient(135deg, $primary-orange-dark-hover, $primary-orange);
     }
 
     &:active {
@@ -243,11 +243,11 @@
   &.secondary {
     background: white;
     color: #d68700;
-    border: 2px solid $primary-purple;
+    border: 2px solid $primary-orange;
 
     &:hover {
-      background: $purple-opacity-08;
-      border-color: $primary-purple-hover;
+      background: $orange-opacity-08;
+      border-color: $primary-orange-hover;
       color: #c47900;
       transform: translateY(-2px);
     }

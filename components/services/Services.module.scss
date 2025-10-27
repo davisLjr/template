@@ -44,7 +44,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: $primary-purple;
+    color: $primary-orange;
   }
 }
 
@@ -95,8 +95,8 @@
 
   &:hover {
     transform: translateY(-8px) translateZ(0);
-    box-shadow: 0 16px 48px $purple-opacity-15;
-    border-color: $purple-opacity-30;
+    box-shadow: 0 16px 48px $orange-opacity-15;
+    border-color: $orange-opacity-30;
   }
 }
 
@@ -107,14 +107,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $purple-opacity-10, $purple-opacity-05);
+  background: linear-gradient(135deg, $orange-opacity-10, $orange-opacity-05);
   border-radius: 16px;
-  color: $primary-purple;
+  color: $primary-orange;
   transition: all 0.3s ease;
 
   .card:hover & {
     transform: scale(1.1) rotate(5deg);
-    background: linear-gradient(135deg, $purple-opacity-20, $purple-opacity-10);
+    background: linear-gradient(135deg, $orange-opacity-20, $orange-opacity-10);
   }
 }
 
@@ -144,19 +144,19 @@
   @include body-text-semibold;
   width: 100%;
   padding: 0.9rem 2rem;
-  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  background: linear-gradient(135deg, $orange-gradient-start, $orange-gradient-end);
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px $purple-opacity-30;
+  box-shadow: 0 4px 15px $orange-opacity-30;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px $purple-opacity-40;
-    background: linear-gradient(135deg, $primary-purple-dark-hover, $primary-purple);
+    box-shadow: 0 6px 20px $orange-opacity-40;
+    background: linear-gradient(135deg, $primary-orange-dark-hover, $primary-orange);
   }
 
   &:active {
@@ -171,7 +171,7 @@
   }
 
   .subtitle .text {
-    color: $primary-purple-dark;
+    color: $primary-orange-dark;
   }
 
   .cardTitle {
@@ -192,16 +192,16 @@
 
     &:hover {
       background: rgba(255, 255, 255, 0.08);
-      border-color: $purple-opacity-50;
-      box-shadow: 0 16px 48px $purple-opacity-25;
+      border-color: $orange-opacity-50;
+      box-shadow: 0 16px 48px $orange-opacity-25;
     }
   }
 
   .iconWrapper {
-    background: linear-gradient(135deg, $purple-opacity-20, $purple-opacity-10);
+    background: linear-gradient(135deg, $orange-opacity-20, $orange-opacity-10);
 
     .card:hover & {
-      background: linear-gradient(135deg, $purple-opacity-30, $purple-opacity-15);
+      background: linear-gradient(135deg, $orange-opacity-30, $orange-opacity-15);
     }
   }
 }

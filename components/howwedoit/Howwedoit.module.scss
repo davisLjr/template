@@ -46,7 +46,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: $primary-purple;
+    color: $primary-orange;
   }
 }
 
@@ -120,14 +120,14 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  background: linear-gradient(135deg, $orange-gradient-start, $orange-gradient-end);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 2rem;
   position: relative;
   z-index: 2;
-  box-shadow: 0 4px 15px $purple-opacity-30;
+  box-shadow: 0 4px 15px $orange-opacity-30;
   
   span {
     @include heading;
@@ -148,7 +148,7 @@
   left: 50%;
   width: calc(100% + 50px);
   height: 2px;
-  background: linear-gradient(90deg, $purple-opacity-30, $purple-opacity-10);
+  background: linear-gradient(90deg, $orange-opacity-30, $orange-opacity-10);
   z-index: 1;
   
   @media (max-width: 768px) {
@@ -196,12 +196,12 @@
 .processStep:hover {
   .stepCircle {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px $purple-opacity-40;
+    box-shadow: 0 6px 20px $orange-opacity-40;
     transition: all 0.3s ease;
   }
   
   .stepTitle {
-    color: $primary-purple;
+    color: $primary-orange;
     transition: color 0.3s ease;
   }
 }
@@ -213,7 +213,7 @@
   }
   
   .subtitle .text {
-    color: $primary-purple-dark;
+    color: $primary-orange-dark;
   }
   
   .description {
@@ -230,21 +230,21 @@
   }
   
   .stepCircle {
-    background: linear-gradient(135deg, $purple-gradient-start-dark, $purple-gradient-end-dark);
-    box-shadow: 0 4px 15px $purple-opacity-30-dark;
+    background: linear-gradient(135deg, $orange-gradient-start-dark, $orange-gradient-end-dark);
+    box-shadow: 0 4px 15px $orange-opacity-30-dark;
   }
   
   .stepLine {
-    background: linear-gradient(90deg, $purple-opacity-30-dark, $purple-opacity-10-dark);
+    background: linear-gradient(90deg, $orange-opacity-30-dark, $orange-opacity-10-dark);
   }
   
   .processStep:hover {
     .stepCircle {
-      box-shadow: 0 6px 20px $purple-opacity-40-dark;
+      box-shadow: 0 6px 20px $orange-opacity-40-dark;
     }
     
     .stepTitle {
-      color: $primary-purple-dark;
+      color: $primary-orange-dark;
     }
   }
 }

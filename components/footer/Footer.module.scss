@@ -23,10 +23,10 @@
     height: 100%;
     background: radial-gradient(
       circle at 85% 15%,                  // focus top right
-      $purple-blur-strong 0%,             // bright center
-      $purple-blur-medium 10%,            // strong transition
-      $purple-blur-light 25%,             // cooler tone
-      $purple-blur-faded 40%,             // faded
+      $orange-blur-strong 0%,             // bright center
+      $orange-blur-medium 10%,            // strong transition
+      $orange-blur-light 25%,             // cooler tone
+      $orange-blur-faded 40%,             // faded
       transparent 60%                      // completely dissolve
     );
     filter: blur(60px);
@@ -100,19 +100,19 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: $purple-opacity-10;
-  border: 1px solid $purple-opacity-20;
+  background: $orange-opacity-10;
+  border: 1px solid $orange-opacity-20;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $primary-purple;
+  color: $primary-orange;
   transition: all 0.3s ease;
 
   &:hover {
-    background: $primary-purple;
+    background: $primary-orange;
     color: white;
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px $purple-opacity-30;
+    box-shadow: 0 6px 20px $orange-opacity-30;
   }
 }
 
@@ -155,12 +155,12 @@
         left: 0;
         width: 0;
         height: 1px;
-        background: $primary-purple;
+        background: $primary-orange;
         transition: width 0.3s ease;
       }
 
       &:hover {
-        color: $primary-purple;
+        color: $primary-orange;
         transform: translateX(5px);
 
         &::after {
@@ -188,7 +188,7 @@
     color: #222;
 
     svg {
-      color: $primary-purple;
+      color: $primary-orange;
       flex-shrink: 0;
     }
   }
@@ -196,7 +196,7 @@
 
 .bottomBar {
   padding-top: 2rem;
-  border-top: 1px solid $purple-opacity-10;
+  border-top: 1px solid $orange-opacity-10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -230,7 +230,7 @@
     transition: color 0.3s ease;
 
     &:hover {
-      color: $primary-purple;
+      color: $primary-orange;
     }
   }
 
@@ -244,15 +244,15 @@
 :global(body.dark) {
   .footer {
     background: rgba(30, 30, 30, 0.5);
-    border-top: 1px solid $purple-opacity-20-dark;
+    border-top: 1px solid $orange-opacity-20-dark;
 
     &::before {
       background: radial-gradient(
         circle at 85% 15%,
-        $purple-blur-strong-dark 0%,
-        $purple-blur-medium-dark 10%,
-        $purple-blur-light-dark 25%,
-        $purple-blur-faded-dark 40%,
+        $orange-blur-strong-dark 0%,
+        $orange-blur-medium-dark 10%,
+        $orange-blur-light-dark 25%,
+        $orange-blur-faded-dark 40%,
         transparent 60%
       );
     }
@@ -273,11 +273,11 @@
     color: #b0b0b0;
 
     &:hover {
-      color: $primary-purple-dark;
+      color: $primary-orange-dark;
     }
 
     &::after {
-      background: $primary-purple-dark;
+      background: $primary-orange-dark;
     }
   }
 
@@ -285,31 +285,31 @@
     color: #b0b0b0;
 
     svg {
-      color: $primary-purple-dark;
+      color: $primary-orange-dark;
     }
   }
 
   .socialIcon {
-    background: $purple-opacity-15-dark;
-    border: 1px solid $purple-opacity-30-dark;
-    color: $primary-purple-dark;
+    background: $orange-opacity-15-dark;
+    border: 1px solid $orange-opacity-30-dark;
+    color: $primary-orange-dark;
 
     &:hover {
-      background: $primary-purple-dark;
+      background: $primary-orange-dark;
       color: white;
-      box-shadow: 0 6px 20px $purple-opacity-40-dark;
+      box-shadow: 0 6px 20px $orange-opacity-40-dark;
     }
   }
 
   .bottomBar {
-    border-top: 1px solid $purple-opacity-15-dark;
+    border-top: 1px solid $orange-opacity-15-dark;
   }
 
   .legalLinks a {
     color: #b0b0b0;
 
     &:hover {
-      color: $primary-purple-dark;
+      color: $primary-orange-dark;
     }
   }
 

@@ -155,19 +155,19 @@
   }
 
   .themeToggle {
-    background: $purple-opacity-15-dark;
-    border: 1px solid $purple-opacity-30-dark;
-    box-shadow: 0 4px 15px $purple-opacity-20-dark;
+    background: $orange-opacity-15-dark;
+    border: 1px solid $orange-opacity-30-dark;
+    box-shadow: 0 4px 15px $orange-opacity-20-dark;
 
     &:hover {
-      background: $purple-opacity-25-dark;
-      box-shadow: 0 6px 20px $purple-opacity-30-dark;
+      background: $orange-opacity-25-dark;
+      box-shadow: 0 6px 20px $orange-opacity-30-dark;
     }
   }
 
   .mobileMenuContent {
     background: rgba(30, 30, 30, 0.95);
-    border: 1px solid $purple-opacity-20-dark;
+    border: 1px solid $orange-opacity-20-dark;
   }
 
   .closeButton {
@@ -180,14 +180,14 @@
       border-bottom-color: transparent;
 
       &::after {
-        background: $primary-purple-dark;
+        background: $primary-orange-dark;
       }
     }
 
     .mobileThemeToggle {
-      background: $purple-opacity-15-dark;
-      border: 1px solid $purple-opacity-30-dark;
-      border-bottom: 1px solid $purple-opacity-30-dark;
+      background: $orange-opacity-15-dark;
+      border: 1px solid $orange-opacity-30-dark;
+      border-bottom: 1px solid $orange-opacity-30-dark;
       color: #fff;
 
       &::after {
@@ -195,8 +195,8 @@
       }
 
       &:hover {
-        background: $purple-opacity-25-dark;
-        color: $primary-purple-dark;
+        background: $orange-opacity-25-dark;
+        color: $primary-orange-dark;
       }
     }
   }
@@ -298,9 +298,9 @@
   .mobileThemeToggle {
     margin-top: 1rem;
     padding: 1rem;
-    background: $purple-opacity-10;
-    border: 1px solid $purple-opacity-20;
-    border-bottom: 1px solid $purple-opacity-20;
+    background: $orange-opacity-10;
+    border: 1px solid $orange-opacity-20;
+    border-bottom: 1px solid $orange-opacity-20;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -312,8 +312,8 @@
     }
 
     &:hover {
-      background: $purple-opacity-20;
-      color: $primary-purple;
+      background: $orange-opacity-20;
+      color: $primary-orange;
       transform: translateX(0) scale(1.02);
     }
 
