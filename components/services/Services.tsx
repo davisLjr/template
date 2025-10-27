@@ -28,9 +28,42 @@ const ServiceCard = ({ icon, title, description, buttonText, onClick }: ServiceC
 export const Services = () => {
   const { openModal, openServiceModal, closeServiceModal } = useServiceModal();
 
-  const handleReserveContabilidad = () => {
-    console.log("Reservar Contabilidad");
-    closeServiceModal();
+  const handleReserveContabilidad = async () => {
+    try {
+      console.log("Iniciando checkout de Mercado Pago...");
+
+      // Llamar a la API para crear la preferencia de pago
+      const response = await fetch('/api/create-preference', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: 'Contabilidad Empresarial - PRUEBA',
+          quantity: 1,
+          price: 100, // 100 pesos argentinos (monto más alto para sandbox)
+        }),
+      });
+
+      const data = await response.json();
+      console.log('Response data:', data);
+
+      if (!response.ok) {
+        console.error('Error response:', data);
+        throw new Error(data.error || 'Error al crear la preferencia de pago');
+      }
+
+      // Redirigir al checkout de Mercado Pago
+      if (data.init_point) {
+        console.log('Redirigiendo a:', data.init_point);
+        window.location.href = data.init_point;
+      } else {
+        throw new Error('No se recibió la URL de pago');
+      }
+    } catch (error) {
+      console.error('Error al procesar el pago:', error);
+      alert(`Hubo un error al procesar el pago: ${error instanceof Error ? error.message : 'Error desconocido'}\n\nRevisa la consola del navegador para más detalles.`);
+    }
   };
 
   const handleContactContabilidad = () => {
