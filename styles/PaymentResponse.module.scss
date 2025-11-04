@@ -21,7 +21,7 @@ body.light {
   }
 
   .paymentId {
-    background: $orange-opacity-05;
+    background: $blue-opacity-05;
     color: rgba($light-text, 0.6);
   }
 }
@@ -47,7 +47,7 @@ body.dark {
   }
 
   .paymentId {
-    background: $orange-opacity-05-dark;
+    background: $blue-opacity-05-dark;
     color: rgba($dark-text, 0.6);
   }
 }
@@ -94,12 +94,12 @@ body.dark {
 }
 
 .iconPending {
-  background: $orange-opacity-15;
-  color: $primary-orange;
+  background: $blue-opacity-15;
+  color: $primary-blue;
 
   body.dark & {
-    background: $orange-opacity-15-dark;
-    color: $primary-orange-dark;
+    background: $blue-opacity-15-dark;
+    color: $primary-blue-dark;
   }
 }
 
@@ -129,7 +129,7 @@ body.dark {
 
 .button {
   @include body-text-semibold;
-  background: $primary-orange;
+  background: $primary-blue;
   color: white;
   border: none;
   padding: 1rem 2.5rem;
@@ -140,37 +140,37 @@ body.dark {
   margin: 0.5rem;
 
   &:hover {
-    background: $primary-orange-hover;
+    background: $primary-blue-hover;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px $orange-opacity-30;
+    box-shadow: 0 10px 25px $blue-opacity-30;
   }
 
   body.dark & {
-    background: $primary-orange-dark;
+    background: $primary-blue-dark;
 
     &:hover {
-      background: $primary-orange-dark-hover;
-      box-shadow: 0 10px 25px $orange-opacity-30-dark;
+      background: $primary-blue-dark-hover;
+      box-shadow: 0 10px 25px $blue-opacity-30-dark;
     }
   }
 
   &.secondary {
     background: transparent;
-    color: $primary-orange;
-    border: 2px solid $primary-orange;
+    color: $primary-blue;
+    border: 2px solid $primary-blue;
 
     &:hover {
-      background: $orange-opacity-10;
-      box-shadow: 0 10px 25px $orange-opacity-20;
+      background: $blue-opacity-10;
+      box-shadow: 0 10px 25px $blue-opacity-20;
     }
 
     body.dark & {
-      color: $primary-orange-dark;
-      border-color: $primary-orange-dark;
+      color: $primary-blue-dark;
+      border-color: $primary-blue-dark;
 
       &:hover {
-        background: $orange-opacity-10-dark;
-        box-shadow: 0 10px 25px $orange-opacity-20-dark;
+        background: $blue-opacity-10-dark;
+        box-shadow: 0 10px 25px $blue-opacity-20-dark;
       }
     }
   }

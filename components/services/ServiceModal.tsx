@@ -38,7 +38,9 @@ export const ServiceModal = ({
       }, 350); // Duración de la animación
       return () => clearTimeout(timer);
     }
-  }, [isOpen, shouldRender]);
+    // Solo dependemos de isOpen para evitar loops
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
   // Bloquear scroll cuando el modal está abierto
   useEffect(() => {
@@ -66,11 +68,11 @@ export const ServiceModal = ({
   if (!shouldRender) return null;
 
   return (
-    <div className={`${styles.overlay} ${isClosing ? styles.closing : ''}`} onClick={onClose}>
-      <div className={`${styles.modal} ${isClosing ? styles.closing : ''}`} onClick={(e) => e.stopPropagation()}>
+    <div className={`${styles.overlay} ${isClosing ? styles.closing : ""}`} onClick={onClose}>
+      <div className={`${styles.modal} ${isClosing ? styles.closing : ""}`} onClick={(e) => e.stopPropagation()}>
         {/* Botón cerrar */}
         <button className={styles.closeButton} onClick={onClose} aria-label="Cerrar modal">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Ícono de cerrar">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
@@ -88,7 +90,7 @@ export const ServiceModal = ({
             <ul className={styles.includesList}>
               {includes.map((item, index) => (
                 <li key={index} className={styles.includesItem}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Marca de verificación">
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                   <span>{item}</span>

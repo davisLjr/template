@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, useCallback, useMemo } from "react";
 
-export type ServiceType = "contabilidad" | "asesoria" | null;
+export type ServiceType = "contabilidad" | "asesoria" | "constitucion-iva" | null;
 
 interface ServiceModalContextType {
   openModal: ServiceType;
@@ -13,16 +13,23 @@ const ServiceModalContext = createContext<ServiceModalContextType | undefined>(u
 export const ServiceModalProvider = ({ children }: { children: ReactNode }) => {
   const [openModal, setOpenModal] = useState<ServiceType>(null);
 
-  const openServiceModal = (service: ServiceType) => {
+  // Memoizar callbacks para evitar re-renderizados innecesarios
+  const openServiceModal = useCallback((service: ServiceType) => {
     setOpenModal(service);
-  };
+  }, []);
 
-  const closeServiceModal = () => {
+  const closeServiceModal = useCallback(() => {
     setOpenModal(null);
-  };
+  }, []);
+
+  // Memoizar el value del context para evitar re-renderizados
+  const contextValue = useMemo(
+    () => ({ openModal, openServiceModal, closeServiceModal }),
+    [openModal, openServiceModal, closeServiceModal]
+  );
 
   return (
-    <ServiceModalContext.Provider value={{ openModal, openServiceModal, closeServiceModal }}>
+    <ServiceModalContext.Provider value={contextValue}>
       {children}
     </ServiceModalContext.Provider>
   );

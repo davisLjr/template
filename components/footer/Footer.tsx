@@ -2,6 +2,7 @@
 import styles from "./Footer.module.scss";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { useServiceModal } from "@/contexts/ServiceModalContext";
+import Image from "next/image";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,9 +14,11 @@ export const Footer = () => {
         <div className={styles.content}>
           {/* Company Info */}
           <div className={styles.column}>
-            <h3 className={styles.logo}>Celpi-cl</h3>
+            <h3 className={styles.logo}>
+              <Image src='/celpi-logo.svg' alt="Logotipo Celpi" width={60} height={60} />
+            </h3>
             <p className={styles.description}>
-              Soluciones contables profesionales para impulsar tu negocio con creatividad y estrategia.
+              Expertos en constitución de empresas, gestión de devolución de IVA y asesoría tributaria integral. Facilitamos el crecimiento legal y fiscal de tu negocio.
             </p>
             <div className={styles.socialLinks}>
               <a href="#" aria-label="Facebook" className={styles.socialIcon}>
@@ -39,7 +42,12 @@ export const Footer = () => {
             <ul className={styles.linkList}>
               <li>
                 <button onClick={() => openServiceModal("contabilidad")}>
-                  Contabilidad Empresarial
+                  Constitución de Empresas
+                </button>
+              </li>
+              <li>
+                <button onClick={() => openServiceModal("constitucion-iva")}>
+                  Constitución con Devolución IVA
                 </button>
               </li>
               <li>
@@ -56,7 +64,7 @@ export const Footer = () => {
             <ul className={styles.contactList}>
               <li>
                 <Mail size={18} />
-                <span>info@celpi-cl.com</span>
+                <span>info@celpi.cl</span>
               </li>
               <li>
                 <Phone size={18} />
@@ -75,11 +83,13 @@ export const Footer = () => {
           <p className={styles.copyright}>
             &copy; {currentYear} Celpi-cl. Todos los derechos reservados.
           </p>
-          <div className={styles.legalLinks}>
-            <a href="#privacidad">Política de Privacidad</a>
-            <span className={styles.separator}>•</span>
-            <a href="#terminos">Términos de Servicio</a>
-          </div>
+          {/*          
+            <div className={styles.legalLinks}>
+              <a href="#privacidad">Política de Privacidad</a>
+              <span className={styles.separator}>•</span>
+              <a href="#terminos">Términos de Servicio</a>
+            </div>
+          */}
         </div>
       </div>
     </footer>

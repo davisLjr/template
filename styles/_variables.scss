@@ -11,60 +11,60 @@ $dark-bg: #111111;
 $dark-text: #ffffff;
 
 // ========================================
-// BRAND COLORS (Orange Theme)
+// BRAND COLORS (Blue Theme)
 // ========================================
 
-// Primary Orange (Light Theme)
-$primary-orange: #f5a300;
-$primary-orange-hover: #e29200;
+// Primary Blue (Light Theme)
+$primary-blue: #015aad;
+$primary-blue-hover: #014a8f;
 
-// Primary Orange (Dark Theme)
-$primary-orange-dark: #ffb733;
-$primary-orange-dark-hover: #ff9f00;
+// Primary Blue (Dark Theme)
+$primary-blue-dark: #2b7fd4;
+$primary-blue-dark-hover: #1a6ec2;
 
 // Secondary shades for gradients and effects
-$orange-gradient-start: #f5a300;
-$orange-gradient-end: #e29200;
-$orange-gradient-start-dark: #ffb733;
-$orange-gradient-end-dark: #ff9f00;
+$blue-gradient-start: #015aad;
+$blue-gradient-end: #014a8f;
+$blue-gradient-start-dark: #2b7fd4;
+$blue-gradient-end-dark: #1a6ec2;
 
-// Orange with opacity (for backgrounds and effects)
-$orange-blur-strong: rgba(245, 163, 0, 0.85);
-$orange-blur-medium: rgba(245, 163, 0, 0.65);
-$orange-blur-light: rgba(245, 163, 0, 0.4);
-$orange-blur-faded: rgba(180, 100, 0, 0.58);
+// Blue with opacity (for backgrounds and effects)
+$blue-blur-strong: rgba(1, 90, 173, 0.85);
+$blue-blur-medium: rgba(1, 90, 173, 0.65);
+$blue-blur-light: rgba(1, 90, 173, 0.4);
+$blue-blur-faded: rgba(1, 70, 135, 0.58);
 
-// Orange with opacity for dark theme
-$orange-blur-strong-dark: rgba(255, 183, 51, 0.85);
-$orange-blur-medium-dark: rgba(255, 183, 51, 0.65);
-$orange-blur-light-dark: rgba(255, 159, 0, 0.4);
-$orange-blur-faded-dark: rgba(140, 70, 0, 0.58);
+// Blue with opacity for dark theme
+$blue-blur-strong-dark: rgba(43, 127, 212, 0.85);
+$blue-blur-medium-dark: rgba(43, 127, 212, 0.65);
+$blue-blur-light-dark: rgba(26, 110, 194, 0.4);
+$blue-blur-faded-dark: rgba(20, 85, 160, 0.58);
 
 // Common opacity variations (Light Theme)
-$orange-opacity-02: rgba(245, 163, 0, 0.02);
-$orange-opacity-05: rgba(245, 163, 0, 0.05);
-$orange-opacity-08: rgba(245, 163, 0, 0.08);
-$orange-opacity-10: rgba(245, 163, 0, 0.1);
-$orange-opacity-15: rgba(245, 163, 0, 0.15);
-$orange-opacity-20: rgba(245, 163, 0, 0.2);
-$orange-opacity-25: rgba(245, 163, 0, 0.25);
-$orange-opacity-30: rgba(245, 163, 0, 0.3);
-$orange-opacity-40: rgba(245, 163, 0, 0.4);
-$orange-opacity-50: rgba(245, 163, 0, 0.5);
-$orange-opacity-60: rgba(245, 163, 0, 0.6);
-$orange-opacity-70: rgba(245, 163, 0, 0.7);
+$blue-opacity-02: rgba(1, 90, 173, 0.02);
+$blue-opacity-05: rgba(1, 90, 173, 0.05);
+$blue-opacity-08: rgba(1, 90, 173, 0.08);
+$blue-opacity-10: rgba(1, 90, 173, 0.1);
+$blue-opacity-15: rgba(1, 90, 173, 0.15);
+$blue-opacity-20: rgba(1, 90, 173, 0.2);
+$blue-opacity-25: rgba(1, 90, 173, 0.25);
+$blue-opacity-30: rgba(1, 90, 173, 0.3);
+$blue-opacity-40: rgba(1, 90, 173, 0.4);
+$blue-opacity-50: rgba(1, 90, 173, 0.5);
+$blue-opacity-60: rgba(1, 90, 173, 0.6);
+$blue-opacity-70: rgba(1, 90, 173, 0.7);
 
 // Common opacity variations (Dark Theme)
-$orange-opacity-05-dark: rgba(255, 183, 51, 0.05);
-$orange-opacity-08-dark: rgba(255, 183, 51, 0.08);
-$orange-opacity-10-dark: rgba(255, 183, 51, 0.1);
-$orange-opacity-15-dark: rgba(255, 183, 51, 0.15);
-$orange-opacity-20-dark: rgba(255, 183, 51, 0.2);
-$orange-opacity-25-dark: rgba(255, 183, 51, 0.25);
-$orange-opacity-30-dark: rgba(255, 183, 51, 0.3);
-$orange-opacity-40-dark: rgba(255, 183, 51, 0.4);
-$orange-opacity-50-dark: rgba(255, 183, 51, 0.5);
-$orange-opacity-70-dark: rgba(255, 183, 51, 0.7);
+$blue-opacity-05-dark: rgba(43, 127, 212, 0.05);
+$blue-opacity-08-dark: rgba(43, 127, 212, 0.08);
+$blue-opacity-10-dark: rgba(43, 127, 212, 0.1);
+$blue-opacity-15-dark: rgba(43, 127, 212, 0.15);
+$blue-opacity-20-dark: rgba(43, 127, 212, 0.2);
+$blue-opacity-25-dark: rgba(43, 127, 212, 0.25);
+$blue-opacity-30-dark: rgba(43, 127, 212, 0.3);
+$blue-opacity-40-dark: rgba(43, 127, 212, 0.4);
+$blue-opacity-50-dark: rgba(43, 127, 212, 0.5);
+$blue-opacity-70-dark: rgba(43, 127, 212, 0.7);
 
 // ========================================
 // VARIABLES DE TIPOGRAFÍA

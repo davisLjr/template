@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import styles from '@/styles/PaymentResponse.module.scss';
 
 export default function Pending() {
@@ -6,7 +7,13 @@ export default function Pending() {
   const { payment_id } = router.query;
 
   return (
-    <div className={styles.container}>
+    <>
+      <Head>
+        <title>Pago Pendiente - Celpi</title>
+        <meta name="description" content="Tu pago está siendo procesado. Te notificaremos cuando se confirme la transacción." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+      <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.iconPending}>
           <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -29,5 +36,6 @@ export default function Pending() {
         </button>
       </div>
     </div>
+    </>
   );
 }

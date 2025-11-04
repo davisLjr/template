@@ -22,6 +22,8 @@ export const Hero: React.FC<HeroProps> = ({
     <section
       className={styles.hero}
       style={{ backgroundImage: `url(${image})` }}
+      role="banner"
+      aria-label="Sección principal hero"
     >
       <div className={styles.overlay} />
       <div className={styles.content}>

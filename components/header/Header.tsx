@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Sun, Moon } from "lucide-react";
 import styles from "./Header.module.scss";
+import Image from "next/image";
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
@@ -76,7 +77,9 @@ export const Header = () => {
   return (
     <>
       <header className={headerClasses}>
-        <div className={styles.logo}>Celpi-cl</div>
+        <div className={styles.logo}>
+          <Image src='/celpi-logo.svg' alt="Logotipo Celpi" width={60} height={60} />
+        </div>
 
         <nav className={styles.nav}>
           <button onClick={() => scrollToSection("servicios")}>Servicios</button>
@@ -104,6 +107,8 @@ export const Header = () => {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
+              role="img"
+              aria-label="Ícono de menú hamburguesa"
             >
               <line x1="3" y1="6" x2="21" y2="6" />
               <line x1="3" y1="12" x2="21" y2="12" />
@@ -115,13 +120,15 @@ export const Header = () => {
 
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
         <div className={styles.mobileMenuContent}>
-          <button className={styles.closeButton} onClick={toggleMenu}>
+          <button className={styles.closeButton} onClick={toggleMenu} aria-label="Cerrar menú">
             <svg
               width="28"
               height="28"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
+              role="img"
+              aria-label="Ícono de cerrar"
             >
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />

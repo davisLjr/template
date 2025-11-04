@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $orange-opacity-02, $orange-opacity-05);
+  background: linear-gradient(135deg, $blue-opacity-02, $blue-opacity-05);
   
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;
@@ -45,7 +45,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: $primary-orange;
+    color: $primary-blue;
   }
 }
 
@@ -103,7 +103,7 @@
   line-height: 1;
   margin-bottom: 0.5rem;
   color: $light-text;
-  background: linear-gradient(135deg, $orange-gradient-start, $orange-gradient-end);
+  background: linear-gradient(135deg, $blue-gradient-start, $blue-gradient-end);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -132,7 +132,7 @@
 .statDot {
   width: 8px;
   height: 8px;
-  background: $primary-orange;
+  background: $primary-blue;
   border-radius: 50%;
   margin: 0 auto;
   position: relative;
@@ -145,7 +145,7 @@
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
-    background: $orange-opacity-20;
+    background: $blue-opacity-20;
     border-radius: 50%;
     animation: pulse 2s infinite ease-in-out;
   }
@@ -179,7 +179,7 @@
 // Dark theme support
 :global(body.dark) {
   .happyCustomers {
-    background: linear-gradient(135deg, $orange-opacity-05, $orange-opacity-08);
+    background: linear-gradient(135deg, $blue-opacity-05, $blue-opacity-08);
   }
   
   .title {
@@ -187,12 +187,12 @@
   }
   
   .subtitle .text {
-    color: $primary-orange-dark;
+    color: $primary-blue-dark;
   }
   
   .statValue {
     color: $dark-text;
-    background: linear-gradient(135deg, $orange-gradient-start-dark, $orange-gradient-end-dark);
+    background: linear-gradient(135deg, $blue-gradient-start-dark, $blue-gradient-end-dark);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -204,10 +204,10 @@
   }
   
   .statDot {
-    background: $primary-orange-dark;
+    background: $primary-blue-dark;
     
     &::before {
-      background: $orange-opacity-20-dark;
+      background: $blue-opacity-20-dark;
     }
   }
 }

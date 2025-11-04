@@ -1,11 +1,18 @@
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import styles from '@/styles/PaymentResponse.module.scss';
 
 export default function Failure() {
   const router = useRouter();
 
   return (
-    <div className={styles.container}>
+    <>
+      <Head>
+        <title>Pago Rechazado - Celpi</title>
+        <meta name="description" content="Hubo un problema al procesar tu pago. Por favor, intenta nuevamente o contacta con soporte." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+      <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.iconError}>
           <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -34,5 +41,6 @@ export default function Failure() {
         </div>
       </div>
     </div>
+    </>
   );
 }

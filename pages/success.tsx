@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import styles from '@/styles/PaymentResponse.module.scss';
 
 export default function Success() {
@@ -12,7 +13,13 @@ export default function Success() {
   }, [payment_id, status, external_reference]);
 
   return (
-    <div className={styles.container}>
+    <>
+      <Head>
+        <title>Pago Exitoso - Celpi</title>
+        <meta name="description" content="Tu pago ha sido procesado exitosamente. Gracias por confiar en Celpi para tus servicios contables." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+      <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.iconSuccess}>
           <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -35,5 +42,6 @@ export default function Success() {
         </button>
       </div>
     </div>
+    </>
   );
 }

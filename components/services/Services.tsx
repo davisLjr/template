@@ -1,3 +1,4 @@
+import { useCallback, memo, useEffect } from "react";
 import styles from "./Services.module.scss";
 import { ServiceModal } from "./ServiceModal";
 import { useServiceModal } from "@/contexts/ServiceModalContext";
@@ -10,7 +11,13 @@ interface ServiceCardProps {
   onClick: () => void;
 }
 
-const ServiceCard = ({ icon, title, description, buttonText, onClick }: ServiceCardProps) => {
+// Memoizar ServiceCard para evitar re-renders innecesarios
+const ServiceCard = memo(({ icon, title, description, buttonText, onClick }: ServiceCardProps) => {
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    onClick();
+  }, [onClick]);
+
   return (
     <div className={styles.card} onClick={onClick}>
       <div className={styles.iconWrapper}>
@@ -18,17 +25,31 @@ const ServiceCard = ({ icon, title, description, buttonText, onClick }: ServiceC
       </div>
       <h3 className={styles.cardTitle}>{title}</h3>
       <p className={styles.cardDescription}>{description}</p>
-      <button className={styles.cardButton} onClick={(e) => { e.stopPropagation(); onClick(); }}>
+      <button className={styles.cardButton} onClick={handleClick}>
         {buttonText}
       </button>
     </div>
   );
-};
+});
+
+ServiceCard.displayName = 'ServiceCard';
 
 export const Services = () => {
   const { openModal, openServiceModal, closeServiceModal } = useServiceModal();
 
-  const handleReserveContabilidad = async () => {
+  // Deshabilitar animaciones problemáticas en Chrome
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Detectar si es Chrome
+      const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+      if (isChrome) {
+        // Agregar clase para desactivar animaciones problemáticas
+        document.body.classList.add('chrome-safe-mode');
+      }
+    }
+  }, []);
+
+  const handleReserveContabilidad = useCallback(async () => {
     try {
       console.log("Iniciando checkout de Mercado Pago...");
 
@@ -39,9 +60,9 @@ export const Services = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          title: 'Contabilidad Empresarial - PRUEBA',
+          title: 'Constitución de Empresas',
           quantity: 1,
-          price: 100, // 100 pesos argentinos (monto más alto para sandbox)
+          price: 119000, // $100.000 + IVA (19%)
         }),
       });
 
@@ -64,17 +85,60 @@ export const Services = () => {
       console.error('Error al procesar el pago:', error);
       alert(`Hubo un error al procesar el pago: ${error instanceof Error ? error.message : 'Error desconocido'}\n\nRevisa la consola del navegador para más detalles.`);
     }
-  };
+  }, []);
 
-  const handleContactContabilidad = () => {
-    console.log("Contactar Contabilidad");
+  const handleContactContabilidad = useCallback(() => {
+    console.log("Contactar Gestión y Constitución");
     closeServiceModal();
-  };
+  }, [closeServiceModal]);
 
-  const handleContactAsesoria = () => {
+  const handleContactAsesoria = useCallback(() => {
     console.log("Contactar Asesoría");
     closeServiceModal();
-  };
+  }, [closeServiceModal]);
+
+  const handleReserveConstitucionIva = useCallback(async () => {
+    try {
+      console.log("Iniciando checkout de Mercado Pago...");
+
+      // Llamar a la API para crear la preferencia de pago
+      const response = await fetch('/api/create-preference', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: 'Constituye tu inmobiliaria para devolución de IVA',
+          quantity: 1,
+          price: 150000,
+        }),
+      });
+
+      const data = await response.json();
+      console.log('Response data:', data);
+
+      if (!response.ok) {
+        console.error('Error response:', data);
+        throw new Error(data.error || 'Error al crear la preferencia de pago');
+      }
+
+      // Redirigir al checkout de Mercado Pago
+      if (data.init_point) {
+        console.log('Redirigiendo a:', data.init_point);
+        window.location.href = data.init_point;
+      } else {
+        throw new Error('No se recibió la URL de pago');
+      }
+    } catch (error) {
+      console.error('Error al procesar el pago:', error);
+      alert(`Hubo un error al procesar el pago: ${error instanceof Error ? error.message : 'Error desconocido'}\n\nRevisa la consola del navegador para más detalles.`);
+    }
+  }, []);
+
+  const handleContactConstitucionIva = useCallback(() => {
+    console.log("Contactar Constitución con Devolución IVA");
+    closeServiceModal();
+  }, [closeServiceModal]);
 
   return (
     <section id="servicios" className={styles.services}>
@@ -93,24 +157,37 @@ export const Services = () => {
         <div className={styles.cardsContainer}>
           <ServiceCard
             icon={
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Ícono de edificio empresarial">
+                <path d="M3 21h18M3 7v1a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V7m-1 7v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4M5 7V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" />
               </svg>
             }
-            title="Contabilidad Empresarial"
-            description="Gestión contable completa para tu empresa, incluyendo balances, declaraciones y asesoría fiscal personalizada."
+            title="Constitución de Empresas"
+            description="Asesoría integral para la creación y formalización de tu empresa, desde trámites legales hasta la puesta en marcha."
             buttonText="Ver más"
             onClick={() => openServiceModal("contabilidad")}
           />
 
           <ServiceCard
             icon={
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Ícono de devolución de IVA">
+                <path d="M3 21h18M3 7v1a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V7m-1 7v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4M5 7V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" />
+                <path d="M12 14l3 3m0 0l-3 3m3-3H9" stroke="currentColor" strokeWidth="2"/>
+              </svg>
+            }
+            title="Constituye tu inmobiliaria para devolución de IVA"
+            description="Servicio especializado para la constitución de inmobiliarias con gestión de devolución de IVA, optimizando tu inversión inicial."
+            buttonText="Ver más"
+            onClick={() => openServiceModal("constitucion-iva")}
+          />
+
+          <ServiceCard
+            icon={
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Ícono de asesoría tributaria">
                 <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
               </svg>
             }
-            title="Asesoría Tributaria"
+            title="Asesoría Tributaria Mensual"
             description="Optimización tributaria y planificación fiscal estratégica para maximizar tus beneficios y cumplir normativas."
             buttonText="Ver más"
             onClick={() => openServiceModal("asesoria")}
@@ -118,25 +195,43 @@ export const Services = () => {
         </div>
       </div>
 
-      {/* Modal Contabilidad */}
+      {/* Modal Gestión y Constitución */}
       <ServiceModal
         isOpen={openModal === "contabilidad"}
         onClose={closeServiceModal}
-        title="Contabilidad Empresarial"
-        description="Ofrecemos un servicio integral de gestión contable diseñado específicamente para empresas que buscan optimizar sus procesos financieros y mantener sus cuentas en orden. Nuestro equipo de expertos se encarga de todos los aspectos contables, desde el registro de operaciones diarias hasta la elaboración de estados financieros completos."
+        title="Gestión y Constitución de Empresas"
+        description="Servicio integral para la creación y formalización de tu empresa. Nos encargamos de todos los trámites legales, tributarios y administrativos necesarios para que tu negocio esté completamente operativo. El valor por la prestación de estos servicios es de $100.000 + IVA."
         includes={[
-          "Registro y clasificación de todas las operaciones contables",
-          "Elaboración de balances mensuales, trimestrales y anuales",
-          "Declaraciones tributarias mensuales (IVA, retenciones)",
-          "Conciliaciones bancarias y control de cuentas",
-          "Asesoramiento fiscal personalizado",
-          "Informes financieros detallados para toma de decisiones",
-          "Cumplimiento de normativas contables vigentes",
-          "Soporte y consultoría durante todo el año",
+          "Redacción y constitución de sociedad",
+          "Inicio de actividades",
+          "Obtención de Clave SII de la empresa",
+          "Gestión de Cédulas E-RUT",
+          "Solicitud de verificación de actividad",
+          "Inscripción en el sistema de factura electrónica",
+          "Registro de accionistas (SPA)",
+          "Inscripción en la Dirección del Trabajo",
+          "Inscripción en el Instituto de Seguridad Laboral",
+          "Solicitud de cuenta bancaria para la empresa",
+          "Asesoría y gestión para la obtención de Patente Comercial",
         ]}
         hasReserveButton={true}
         onReserve={handleReserveContabilidad}
         onContact={handleContactContabilidad}
+      />
+
+      {/* Modal Constituye tu inmobiliaria para devolución de IVA */}
+      <ServiceModal
+        isOpen={openModal === "constitucion-iva"}
+        onClose={closeServiceModal}
+        title="Constituye tu inmobiliaria para devolución de IVA"
+        description="Servicio especializado para la constitución de inmobiliarias con gestión de devolución de IVA, optimizando tu inversión inicial. El valor por la prestación de estos servicios es de $150.000."
+        includes={[
+          "Redacción y constitución de sociedad",
+          "Dirección tributaria",
+        ]}
+        hasReserveButton={true}
+        onReserve={handleReserveConstitucionIva}
+        onContact={handleContactConstitucionIva}
       />
 
       {/* Modal Asesoría */}
@@ -144,16 +239,17 @@ export const Services = () => {
         isOpen={openModal === "asesoria"}
         onClose={closeServiceModal}
         title="Asesoría Tributaria"
-        description="Nuestro servicio de asesoría tributaria está enfocado en ayudarte a optimizar tu carga fiscal de manera legal y estratégica. Analizamos tu situación particular y diseñamos estrategias personalizadas que maximicen tus beneficios fiscales mientras garantizamos el cumplimiento total de todas las normativas tributarias."
+        description="Servicio integral de gestión administrativa, contable y tributaria diseñado para empresas que buscan optimizar sus procesos financieros. Incluye representación ante instituciones, administración de información contable, facturación y reuniones quincenales de coordinación. El valor base es de 1,00 UF mensual. Al sobrepasar los 10 movimientos mensuales, se aplica un costo adicional de 0,5 UF por cada 25 movimientos extras."
         includes={[
-          "Análisis exhaustivo de tu situación tributaria actual",
-          "Planificación fiscal estratégica a corto y largo plazo",
-          "Optimización de deducciones y beneficios fiscales",
-          "Asesoramiento en restructuraciones empresariales",
-          "Representación ante autoridades fiscales",
-          "Revisión y corrección de declaraciones anteriores",
-          "Actualización continua sobre cambios normativos",
-          "Estrategias de ahorro fiscal personalizadas",
+          "Representación y trámites administrativos ante instituciones y empresas",
+          "Administración y gestión de información financiera, contable y tributaria",
+          "Confección de informes mensuales detallados",
+          "Emisión de hasta 10 facturas mensuales",
+          "Cooperación con gestión de cobranza cuando sea requerido",
+          "Conciliación bancaria manual (hasta 10 movimientos de ingresos y egresos)",
+          "Planificación y ejecución de pagos en plazos establecidos",
+          "Reunión de coordinación y planificación cada 15 días",
+          "Servicios adicionales negociables según necesidades de la empresa",
         ]}
         hasReserveButton={false}
         onContact={handleContactAsesoria}
