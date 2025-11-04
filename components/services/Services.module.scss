@@ -44,7 +44,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: $primary-purple;
+    color: $primary-blue;
   }
 }
 
@@ -62,13 +62,17 @@
   }
 }
 
-// Container de cards
+// Container de cards con grid - 3 columnas horizontales
 .cardsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -76,27 +80,27 @@
   }
 }
 
-// Card con efecto glass
+// Card SIN transformaciones - solo cambios de color/sombra
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   padding: 2.5rem 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(200, 200, 200, 0.5);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 
-  // GPU acceleration
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  // SIN transiciones para evitar re-renders
+  transition: none;
 
   &:hover {
-    transform: translateY(-8px) translateZ(0);
-    box-shadow: 0 16px 48px $purple-opacity-15;
-    border-color: $purple-opacity-30;
+    // Solo cambios de color - SIN transforms
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(43, 127, 212, 0.6);
+    box-shadow: 0 6px 24px rgba(43, 127, 212, 0.2);
   }
 }
 
@@ -107,14 +111,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $purple-opacity-10, $purple-opacity-05);
+  background: linear-gradient(135deg, $blue-opacity-10, $blue-opacity-05);
   border-radius: 16px;
-  color: $primary-purple;
-  transition: all 0.3s ease;
+  color: $primary-blue;
+
+  // Transición MUY específica - solo transform, duración corta
+  transition: transform 0.2s ease-out;
 
   .card:hover & {
-    transform: scale(1.1) rotate(5deg);
-    background: linear-gradient(135deg, $purple-opacity-20, $purple-opacity-10);
+    // Solo escala suave, SIN rotación
+    transform: scale(1.05);
+    background: linear-gradient(135deg, $blue-opacity-20, $blue-opacity-10);
   }
 }
 
@@ -144,25 +151,28 @@
   @include body-text-semibold;
   width: 100%;
   padding: 0.9rem 2rem;
-  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  background: linear-gradient(135deg, $blue-gradient-start, $blue-gradient-end);
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px $purple-opacity-30;
+  box-shadow: 0 4px 15px $blue-opacity-30;
+
+  // SIN transiciones ni transforms
+  transition: none;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px $purple-opacity-40;
-    background: linear-gradient(135deg, $primary-purple-dark-hover, $primary-purple);
+    // Solo cambio de opacidad
+    opacity: 0.9;
   }
 
   &:active {
-    transform: translateY(0);
+    opacity: 0.8;
   }
 }
+
+// Ya no necesitamos esta optimización porque removimos backdrop-filter completamente
 
 // Dark theme support
 :global(body.dark) {
@@ -171,7 +181,7 @@
   }
 
   .subtitle .text {
-    color: $primary-purple-dark;
+    color: $primary-blue-dark;
   }
 
   .cardTitle {
@@ -184,24 +194,24 @@
   }
 
   .card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: rgba(30, 30, 30, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: none;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: $purple-opacity-50;
-      box-shadow: 0 16px 48px $purple-opacity-25;
+      background: rgba(40, 40, 40, 0.95);
+      border-color: rgba(43, 127, 212, 0.6);
+      box-shadow: 0 6px 24px rgba(43, 127, 212, 0.3);
     }
   }
 
   .iconWrapper {
-    background: linear-gradient(135deg, $purple-opacity-20, $purple-opacity-10);
+    background: linear-gradient(135deg, $blue-opacity-20, $blue-opacity-10);
 
     .card:hover & {
-      background: linear-gradient(135deg, $purple-opacity-30, $purple-opacity-15);
+      background: linear-gradient(135deg, $blue-opacity-30, $blue-opacity-15);
     }
   }
+
 }

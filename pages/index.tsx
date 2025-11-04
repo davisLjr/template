@@ -18,27 +18,33 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div style={{ marginTop: '-100px' }}>
+      <div style={{ marginTop: '-110px' }}>
         <Hero
           image="https://images.pexels.com/photos/5224591/pexels-photo-5224591.jpeg"
-          pretitle="Soluciones para tu negocio"
+          pretitle="Tu Empresa en Regla"
           title={
             <>
-              Construye un Fuerte <br/><span className={heroStyles.titleAccent}>Sistema</span> Contable.
+              Constituye tu <br/><span className={heroStyles.titleAccent}>Empresa</span> Legal y Rápido
             </>
           }
-          description="Creamos soluciones tecnológicas que impulsan tu negocio con creatividad y estrategia."
-          buttonLabel="Ver servicios"
-          onButtonClick={() => console.log("Click en Ver servicios")}
+          description="Nos encargamos de todo el proceso legal, tributario y administrativo para que tu empresa esté operativa desde el primer día."
+          buttonLabel="Constituir mi empresa"
+          onButtonClick={() => {
+            const serviciosSection = document.getElementById('servicios');
+            if (serviciosSection) {
+              serviciosSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
         />
 
         <Services />
 
         <AboutUs />
 
-        <HappyCustomers />
-
-        <ClientFeedback />
+        {/*        
+          <HappyCustomers />
+          <ClientFeedback />
+        */}
 
         <HowWeDoIt />
 

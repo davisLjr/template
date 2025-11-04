@@ -120,7 +120,7 @@
 .subtitle {
   @include subheading-medium;
   display: inline-block;
-  color: $primary-purple;
+  color: $primary-blue;
   font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -134,7 +134,7 @@
     left: 0;
     width: 40px;
     height: 2px;
-    background: linear-gradient(90deg, $purple-gradient-start, $purple-gradient-end);
+    background: linear-gradient(90deg, $blue-gradient-start, $blue-gradient-end);
     border-radius: 2px;
   }
 }
@@ -156,7 +156,7 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  background: linear-gradient(135deg, $blue-gradient-start, $blue-gradient-end);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -192,7 +192,7 @@
 .iconContainer {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  background: linear-gradient(135deg, $blue-gradient-start, $blue-gradient-end);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -203,7 +203,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px $purple-opacity-30;
+    box-shadow: 0 8px 20px $blue-opacity-30;
   }
 
   @media (max-width: 768px) {
@@ -226,9 +226,9 @@
 .quoteSection {
   margin: 40px 0 20px 0;
   padding: 24px 0;
-  border-left: 4px solid $primary-purple;
+  border-left: 4px solid $primary-blue;
   padding-left: 24px;
-  background: linear-gradient(90deg, $purple-opacity-05, transparent);
+  background: linear-gradient(90deg, $blue-opacity-05, transparent);
   border-radius: 0 8px 8px 0;
 
   @media (max-width: 768px) {
@@ -256,7 +256,7 @@
 
 .serviceButton {
   @include body-text-semibold;
-  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  background: linear-gradient(135deg, $blue-gradient-start, $blue-gradient-end);
   color: white;
   border: none;
   padding: 16px 32px;
@@ -264,11 +264,11 @@
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px $purple-opacity-20;
+  box-shadow: 0 4px 14px $blue-opacity-20;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px $purple-opacity-30;
+    box-shadow: 0 8px 25px $blue-opacity-30;
   }
 
   &:active {
@@ -287,15 +287,15 @@
   }
 
   .subtitle {
-    color: $primary-purple-dark;
+    color: $primary-blue-dark;
 
     &::after {
-      background: linear-gradient(90deg, $purple-gradient-start-dark, $purple-gradient-end-dark);
+      background: linear-gradient(90deg, $blue-gradient-start-dark, $blue-gradient-end-dark);
     }
   }
 
   .highlight {
-    background: linear-gradient(135deg, $purple-gradient-start-dark, $purple-gradient-end-dark);
+    background: linear-gradient(135deg, $blue-gradient-start-dark, $blue-gradient-end-dark);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -310,17 +310,17 @@
   }
 
   .iconContainer {
-    background: linear-gradient(135deg, $purple-gradient-start-dark, $purple-gradient-end-dark);
-    box-shadow: 0 4px 15px $purple-opacity-20-dark;
+    background: linear-gradient(135deg, $blue-gradient-start-dark, $blue-gradient-end-dark);
+    box-shadow: 0 4px 15px $blue-opacity-20-dark;
 
     &:hover {
-      box-shadow: 0 8px 20px $purple-opacity-40-dark;
+      box-shadow: 0 8px 20px $blue-opacity-40-dark;
     }
   }
 
   .quoteSection {
-    border-left-color: $primary-purple-dark;
-    background: linear-gradient(90deg, $purple-opacity-08-dark, transparent);
+    border-left-color: $primary-blue-dark;
+    background: linear-gradient(90deg, $blue-opacity-08-dark, transparent);
   }
 
   .quote {
@@ -328,11 +328,11 @@
   }
 
   .serviceButton {
-    background: linear-gradient(135deg, $purple-gradient-start-dark, $purple-gradient-end-dark);
-    box-shadow: 0 4px 14px $purple-opacity-30-dark;
+    background: linear-gradient(135deg, $blue-gradient-start-dark, $blue-gradient-end-dark);
+    box-shadow: 0 4px 14px $blue-opacity-30-dark;
 
     &:hover {
-      box-shadow: 0 8px 25px $purple-opacity-40-dark;
+      box-shadow: 0 8px 25px $blue-opacity-40-dark;
     }
   }
 
@@ -341,11 +341,11 @@
   }
 
   .playButton {
-    background: linear-gradient(135deg, $purple-gradient-start-dark, $purple-gradient-end-dark);
-    box-shadow: 0 10px 30px $purple-opacity-40-dark;
+    background: linear-gradient(135deg, $blue-gradient-start-dark, $blue-gradient-end-dark);
+    box-shadow: 0 10px 30px $blue-opacity-40-dark;
 
     &:hover {
-      box-shadow: 0 15px 40px $purple-opacity-50-dark;
+      box-shadow: 0 15px 40px $blue-opacity-50-dark;
     }
   }
 }

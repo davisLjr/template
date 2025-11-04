@@ -156,7 +156,7 @@ export const ContactForm = () => {
                 onChange={handleChange}
                 required
                 className={styles.input}
-                placeholder="+56 9 1234 5678"
+                placeholder="+56 0 0000 0000"
               />
             </div>
 
@@ -188,7 +188,7 @@ export const ContactForm = () => {
               onChange={handleChange}
               required
               className={styles.textarea}
-              placeholder="Cuéntanos sobre tu proyecto o consulta..."
+              placeholder="Cuéntanos los detalles de tu consulta o proyecto..."
               rows={5}
             />
           </div>

@@ -1,0 +1,202 @@
+// Importar variables y mixins
+@use './variables' as *;
+
+// Light theme
+body.light {
+  .container {
+    background-color: $light-bg;
+  }
+
+  .card {
+    background-color: $light-bg;
+    color: $light-text;
+  }
+
+  .title {
+    color: $light-text;
+  }
+
+  .description {
+    color: rgba($light-text, 0.7);
+  }
+
+  .paymentId {
+    background: $blue-opacity-05;
+    color: rgba($light-text, 0.6);
+  }
+}
+
+// Dark theme
+body.dark {
+  .container {
+    background-color: $dark-bg;
+  }
+
+  .card {
+    background-color: rgba($dark-text, 0.02);
+    color: $dark-text;
+    border: 1px solid rgba($dark-text, 0.1);
+  }
+
+  .title {
+    color: $dark-text;
+  }
+
+  .description {
+    color: rgba($dark-text, 0.7);
+  }
+
+  .paymentId {
+    background: $blue-opacity-05-dark;
+    color: rgba($dark-text, 0.6);
+  }
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.card {
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.iconSuccess,
+.iconError,
+.iconPending {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconSuccess {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.iconError {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+.iconPending {
+  background: $blue-opacity-15;
+  color: $primary-blue;
+
+  body.dark & {
+    background: $blue-opacity-15-dark;
+    color: $primary-blue-dark;
+  }
+}
+
+.title {
+  @include heading;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.description {
+  @include body-text;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.paymentId {
+  @include body-text;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Monaco', 'Courier New', monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button {
+  @include body-text-semibold;
+  background: $primary-blue;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+
+  &:hover {
+    background: $primary-blue-hover;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px $blue-opacity-30;
+  }
+
+  body.dark & {
+    background: $primary-blue-dark;
+
+    &:hover {
+      background: $primary-blue-dark-hover;
+      box-shadow: 0 10px 25px $blue-opacity-30-dark;
+    }
+  }
+
+  &.secondary {
+    background: transparent;
+    color: $primary-blue;
+    border: 2px solid $primary-blue;
+
+    &:hover {
+      background: $blue-opacity-10;
+      box-shadow: 0 10px 25px $blue-opacity-20;
+    }
+
+    body.dark & {
+      color: $primary-blue-dark;
+      border-color: $primary-blue-dark;
+
+      &:hover {
+        background: $blue-opacity-10-dark;
+        box-shadow: 0 10px 25px $blue-opacity-20-dark;
+      }
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .button {
+    padding: 0.875rem 2rem;
+  }
+}

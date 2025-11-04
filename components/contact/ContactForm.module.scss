@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $purple-opacity-02, $purple-opacity-05);
+  background: linear-gradient(135deg, $blue-opacity-02, $blue-opacity-05);
 
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;
@@ -45,7 +45,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: $primary-purple;
+    color: $primary-blue;
   }
 }
 
@@ -124,7 +124,7 @@
   @include body-text;
   width: 100%;
   padding: 0.9rem 1.2rem;
-  border: 2px solid $purple-opacity-20;
+  border: 2px solid $blue-opacity-20;
   border-radius: 12px;
   font-size: 1rem;
   color: $light-text;
@@ -138,13 +138,13 @@
 
   &:focus {
     outline: none;
-    border-color: $primary-purple;
+    border-color: $primary-blue;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0 0 0 3px $purple-opacity-10;
+    box-shadow: 0 0 0 3px $blue-opacity-10;
   }
 
   &:hover {
-    border-color: $purple-opacity-30;
+    border-color: $blue-opacity-30;
   }
 }
 
@@ -159,20 +159,20 @@
   @include body-text-semibold;
   width: 100%;
   padding: 1.1rem 2rem;
-  background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+  background: linear-gradient(135deg, $blue-gradient-start, $blue-gradient-end);
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px $purple-opacity-30;
+  box-shadow: 0 4px 15px $blue-opacity-30;
   margin-top: 1rem;
 
   &:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px $purple-opacity-40;
-    background: linear-gradient(135deg, $primary-purple-dark-hover, $primary-purple);
+    box-shadow: 0 6px 20px $blue-opacity-40;
+    background: linear-gradient(135deg, $primary-blue-dark-hover, $primary-blue);
   }
 
   &:active:not(:disabled) {
@@ -223,7 +223,7 @@
 // Dark theme support
 :global(body.dark) {
   .contact {
-    background: linear-gradient(135deg, $purple-opacity-05-dark, $purple-opacity-08-dark);
+    background: linear-gradient(135deg, $blue-opacity-05-dark, $blue-opacity-08-dark);
   }
 
   .title {
@@ -231,7 +231,7 @@
   }
 
   .subtitle .text {
-    color: $primary-purple-dark;
+    color: $primary-blue-dark;
   }
 
   .description {
@@ -250,7 +250,7 @@
   .input,
   .textarea {
     background: rgba(50, 50, 50, 0.8);
-    border-color: $purple-opacity-20-dark;
+    border-color: $blue-opacity-20-dark;
     color: $dark-text;
 
     &::placeholder {
@@ -258,23 +258,23 @@
     }
 
     &:focus {
-      border-color: $primary-purple-dark;
+      border-color: $primary-blue-dark;
       background: rgba(50, 50, 50, 1);
-      box-shadow: 0 0 0 3px $purple-opacity-15-dark;
+      box-shadow: 0 0 0 3px $blue-opacity-15-dark;
     }
 
     &:hover {
-      border-color: $purple-opacity-30-dark;
+      border-color: $blue-opacity-30-dark;
     }
   }
 
   .submitButton {
-    background: linear-gradient(135deg, $purple-gradient-start-dark, $purple-gradient-end-dark);
-    box-shadow: 0 4px 15px $purple-opacity-30-dark;
+    background: linear-gradient(135deg, $blue-gradient-start-dark, $blue-gradient-end-dark);
+    box-shadow: 0 4px 15px $blue-opacity-30-dark;
 
     &:hover:not(:disabled) {
-      box-shadow: 0 6px 20px $purple-opacity-40-dark;
-      background: linear-gradient(135deg, $primary-purple-dark-hover, $primary-purple-dark);
+      box-shadow: 0 6px 20px $blue-opacity-40-dark;
+      background: linear-gradient(135deg, $primary-blue-dark-hover, $primary-blue-dark);
     }
   }
 

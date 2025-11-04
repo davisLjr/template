@@ -19,23 +19,23 @@ const AboutUs: React.FC<AboutUsProps> = ({ className = '' }) => {
 
   const serviceItems: ServiceItem[] = [
     {
-      id: 'smart-home',
-      title: 'Smart Home Design',
+      id: 'constitucion',
+      title: 'Constitución Legal',
       icon: <Home size={20} />
     },
     {
-      id: 'recreational',
-      title: 'Recreational Lifestyle',
+      id: 'devolucion-iva',
+      title: 'Devolución de IVA',
       icon: <Target size={20} />
     },
     {
-      id: 'beautiful-scene',
-      title: 'Beautiful Scene Around',
+      id: 'asesoria',
+      title: 'Asesoría Tributaria',
       icon: <Mountain size={20} />
     },
     {
-      id: 'security',
-      title: 'Complete 24/7 Security',
+      id: 'cumplimiento',
+      title: 'Cumplimiento Normativo',
       icon: <Shield size={20} />
     }
   ];
@@ -59,14 +59,15 @@ const AboutUs: React.FC<AboutUsProps> = ({ className = '' }) => {
           {/* Right side - Content */}
           <div className={styles.textSection}>
             <div className={styles.header}>
-              <span className={styles.subtitle}>ABOUT US</span>
+              <span className={styles.subtitle}>SOBRE NOSOTROS</span>
               <h2 className={styles.title}>
-                Let&apos;s Know <span className={styles.highlight}>About Our</span><br />
-                Company
+                Expertos en <span className={styles.highlight}>Constitución</span><br />
+                y Asesoría Tributaria
               </h2>
               <p className={styles.description}>
-                Over 39,000 people work for us in more than 70 countries all over the world.
-                This breadth of global coverage, combined with specialist services.
+                Especializados en la constitución de empresas y gestión tributaria integral.
+                Facilitamos todo el proceso de formalización legal de tu negocio, desde el inicio
+                de actividades hasta la optimización fiscal, incluyendo la gestión de devolución de IVA.
               </p>
             </div>
 
@@ -85,16 +86,17 @@ const AboutUs: React.FC<AboutUsProps> = ({ className = '' }) => {
             {/* Quote Section */}
             <div className={styles.quoteSection}>
               <p className={styles.quote}>
-                &quot;Getting started with planning and understanding doesn&apos;t cost anything during Lorem Ipsum dolor sit amet.&quot;
+                &quot;Nos encargamos de todo el proceso legal y tributario para que tú te enfoques en hacer crecer tu negocio. Desde la constitución hasta la optimización fiscal.&quot;
               </p>
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button
             <div className={styles.ctaSection}>
               <button className={styles.serviceButton}>
                 Our Service
               </button>
             </div>
+            */}
           </div>
         </div>
       </div>

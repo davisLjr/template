@@ -25,6 +25,7 @@
   .nav {
     display: flex;
     gap: 1.5rem;
+    padding-top: 6px;
 
     button {
       background: none;
@@ -155,19 +156,19 @@
   }
 
   .themeToggle {
-    background: $purple-opacity-15-dark;
-    border: 1px solid $purple-opacity-30-dark;
-    box-shadow: 0 4px 15px $purple-opacity-20-dark;
+    background: $blue-opacity-15-dark;
+    border: 1px solid $blue-opacity-30-dark;
+    box-shadow: 0 4px 15px $blue-opacity-20-dark;
 
     &:hover {
-      background: $purple-opacity-25-dark;
-      box-shadow: 0 6px 20px $purple-opacity-30-dark;
+      background: $blue-opacity-25-dark;
+      box-shadow: 0 6px 20px $blue-opacity-30-dark;
     }
   }
 
   .mobileMenuContent {
     background: rgba(30, 30, 30, 0.95);
-    border: 1px solid $purple-opacity-20-dark;
+    border: 1px solid $blue-opacity-20-dark;
   }
 
   .closeButton {
@@ -180,14 +181,14 @@
       border-bottom-color: transparent;
 
       &::after {
-        background: $primary-purple-dark;
+        background: $primary-blue-dark;
       }
     }
 
     .mobileThemeToggle {
-      background: $purple-opacity-15-dark;
-      border: 1px solid $purple-opacity-30-dark;
-      border-bottom: 1px solid $purple-opacity-30-dark;
+      background: $blue-opacity-15-dark;
+      border: 1px solid $blue-opacity-30-dark;
+      border-bottom: 1px solid $blue-opacity-30-dark;
       color: #fff;
 
       &::after {
@@ -195,8 +196,8 @@
       }
 
       &:hover {
-        background: $purple-opacity-25-dark;
-        color: $primary-purple-dark;
+        background: $blue-opacity-25-dark;
+        color: $primary-blue-dark;
       }
     }
   }
@@ -298,9 +299,9 @@
   .mobileThemeToggle {
     margin-top: 1rem;
     padding: 1rem;
-    background: $purple-opacity-10;
-    border: 1px solid $purple-opacity-20;
-    border-bottom: 1px solid $purple-opacity-20;
+    background: $blue-opacity-10;
+    border: 1px solid $blue-opacity-20;
+    border-bottom: 1px solid $blue-opacity-20;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -312,8 +313,8 @@
     }
 
     &:hover {
-      background: $purple-opacity-20;
-      color: $primary-purple;
+      background: $blue-opacity-20;
+      color: $primary-blue;
       transform: translateX(0) scale(1.02);
     }
 

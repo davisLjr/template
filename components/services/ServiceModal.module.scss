@@ -6,8 +6,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,17 +44,18 @@
   max-height: 90vh;
   overflow-y: auto;
 
-  // Efecto glass con blur intenso
-  background: rgb(255 255 255 / 92%);
-  backdrop-filter: blur(145px);
-  -webkit-backdrop-filter: blur(145px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  // Efecto glass optimizado para rendimiento
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 
-  // GPU acceleration
+  // GPU acceleration y optimización Chrome
   transform: translateZ(0);
   backface-visibility: hidden;
+  // Removido will-change para evitar parpadeo en Chrome
+  contain: layout style;
+  isolation: isolate;
 
   animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
@@ -74,11 +74,11 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $purple-opacity-50;
+    background: $blue-opacity-50;
     border-radius: 10px;
 
     &:hover {
-      background: $purple-opacity-70;
+      background: $blue-opacity-70;
     }
   }
 }
@@ -168,7 +168,7 @@
   @include heading-semibold;
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: $primary-purple;
+  color: $primary-blue;
 }
 
 .includesList {
@@ -188,7 +188,7 @@
   svg {
     flex-shrink: 0;
     margin-top: 0.2rem;
-    color: $primary-purple;
+    color: $primary-blue;
   }
 
   span {
@@ -225,14 +225,14 @@
   }
 
   &.primary {
-    background: linear-gradient(135deg, $purple-gradient-start, $purple-gradient-end);
+    background: linear-gradient(135deg, $blue-gradient-start, $blue-gradient-end);
     color: white;
-    box-shadow: 0 4px 15px $purple-opacity-30;
+    box-shadow: 0 4px 15px $blue-opacity-30;
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px $purple-opacity-40;
-      background: linear-gradient(135deg, $primary-purple-dark-hover, $primary-purple);
+      box-shadow: 0 6px 20px $blue-opacity-40;
+      background: linear-gradient(135deg, $primary-blue-dark-hover, $primary-blue);
     }
 
     &:active {
@@ -242,13 +242,13 @@
 
   &.secondary {
     background: white;
-    color: #d68700;
-    border: 2px solid $primary-purple;
+    color: #2b7fd4;
+    border: 2px solid $primary-blue;
 
     &:hover {
-      background: $purple-opacity-08;
-      border-color: $primary-purple-hover;
-      color: #c47900;
+      background: $blue-opacity-08;
+      border-color: $primary-blue-hover;
+      color: #1a6ec2;
       transform: translateY(-2px);
     }
 
@@ -261,7 +261,7 @@
 // Dark theme support
 :global(body.dark) {
   .modal {
-    background: rgba(20, 20, 20, 0.7);
+    background: rgba(11, 11, 11, 0.96);
     border-color: rgba(255, 255, 255, 0.1);
   }
 
