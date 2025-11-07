@@ -3,7 +3,7 @@ import styles from "./WhatsAppButton.module.scss";
 export const WhatsAppButton = () => {
   const handleClick = () => {
     // El número de WhatsApp se puede configurar en .env.local como NEXT_PUBLIC_WHATSAPP_NUMBER
-    const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56912345678";
+    const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56936516591";
     const message = encodeURIComponent("¡Hola! Me gustaría obtener más información sobre los servicios de CELPI.");
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, "_blank");

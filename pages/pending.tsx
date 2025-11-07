@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { Hero } from '@/components/hero/Hero';
 import styles from '@/styles/PaymentResponse.module.scss';
 
 export default function Pending() {
@@ -13,6 +14,16 @@ export default function Pending() {
         <meta name="description" content="Tu pago está siendo procesado. Te notificaremos cuando se confirme la transacción." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
+      <div style={{ marginTop: '-110px' }}>
+        <Hero
+          image="https://images.pexels.com/photos/5224591/pexels-photo-5224591.jpeg"
+          pretitle="En proceso..."
+          title={<>Pago Pendiente</>}
+          description="Tu pago está siendo procesado por el sistema bancario. Te notificaremos por email cuando se confirme la transacción."
+          buttonLabel="Volver al inicio"
+          onButtonClick={() => router.push('/')}
+        />
+      </div>
       <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.iconPending}>

@@ -1,0 +1,39 @@
+/* TEAM */
+
+Desarrollador: Davis Lapenta
+LinkedIn: https://www.linkedin.com/in/davis-laviera/
+Ubicación: España
+Rol: Full Stack Developer
+
+/* THANKS */
+
+Cliente: Celpi
+Descripción: Estudio Contable Profesional en Chile
+
+/* SITE */
+
+Última actualización: 2025/11/07
+Lenguaje: Español / Spanish
+Doctype: HTML5
+IDE: Visual Studio Code
+Stack: Next.js, React, TypeScript, SCSS, Google Apps Script
+Frameworks: Next.js 14, React 18
+Pasarela de Pago: Mercado Pago Chile
+
+
+                            .-""-.
+                           /[] _ _\
+                          _|_o_LII|_
+                         / | ==== | \
+                        |  | ==== |  |
+                         \|_| == |_|/
+                          ||" ||  ||
+                          ||LI  |  ||
+                          ||'|| |__||
+                        /__||-||-||__\
+                       |---||-||-||---|
+                       |  |'-'-'| |  |
+                       |  |     | |  |
+                       '--'     '--'--'
+
+    Hecho con ❤️ y ☕ en España

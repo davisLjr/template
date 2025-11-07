@@ -78,7 +78,12 @@ export const Header = () => {
     <>
       <header className={headerClasses}>
         <div className={styles.logo}>
-          <Image src='/celpi-logo.svg' alt="Logotipo Celpi" width={60} height={60} />
+          <Image
+            src={theme === 'dark' ? '/logoLight.svg' : '/celpi-logo.svg'}
+            alt="Logotipo Celpi"
+            width={60}
+            height={60}
+          />
         </div>
 
         <nav className={styles.nav}>

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { Hero } from '@/components/hero/Hero';
 import styles from '@/styles/PaymentResponse.module.scss';
 
 export default function Success() {
@@ -9,7 +10,7 @@ export default function Success() {
 
   useEffect(() => {
     // Aquí puedes hacer una llamada a tu backend para guardar la información del pago
-    console.log('Payment successful:', { payment_id, status, external_reference });
+    // console.log('Payment successful:', { payment_id, status, external_reference });
   }, [payment_id, status, external_reference]);
 
   return (
@@ -19,6 +20,16 @@ export default function Success() {
         <meta name="description" content="Tu pago ha sido procesado exitosamente. Gracias por confiar en Celpi para tus servicios contables." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
+      <div style={{ marginTop: '-110px' }}>
+        <Hero
+          image="https://images.pexels.com/photos/5224591/pexels-photo-5224591.jpeg"
+          pretitle="¡Felicidades!"
+          title={<>Pago Exitoso</>}
+          description="Tu pago ha sido procesado correctamente. En breve recibirás un email de confirmación con todos los detalles."
+          buttonLabel="Volver al inicio"
+          onButtonClick={() => router.push('/')}
+        />
+      </div>
       <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.iconSuccess}>

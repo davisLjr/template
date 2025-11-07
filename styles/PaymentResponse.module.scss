@@ -61,6 +61,28 @@ body.dark {
   transition: background-color 0.3s ease;
 }
 
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.buttonSecondary {
+  background: white !important;
+  color: $primary-blue !important;
+  border: 2px solid $primary-blue !important;
+
+  &:hover {
+    background: $blue-opacity-08 !important;
+  }
+}
+
 .card {
   border-radius: 1.5rem;
   padding: 3rem 2rem;

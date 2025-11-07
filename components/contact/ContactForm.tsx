@@ -43,7 +43,7 @@ export const ContactForm = () => {
 
     // 🕵️ Protección anti-bot: si el honeypot tiene algo, se cancela el envío
     if (formData.hiddenField) {
-      console.warn("Intento de bot bloqueado");
+      // console.warn("Intento de bot bloqueado");
       setIsSubmitting(false);
       return;
     }

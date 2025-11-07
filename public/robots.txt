@@ -1,0 +1,22 @@
+# robots.txt para Celpi.cl
+# https://www.celpi.cl/robots.txt
+
+# Permitir acceso a todos los bots
+User-agent: *
+Allow: /
+
+# Bloquear acceso a rutas administrativas y API
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Rutas específicas que SÍ queremos indexar
+Allow: /success
+Allow: /failure
+Allow: /pending
+
+# Sitemap
+Sitemap: https://www.celpi.cl/sitemap.xml
+
+# Crawl-delay para ser amable con el servidor
+Crawl-delay: 1

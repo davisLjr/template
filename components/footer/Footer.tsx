@@ -2,11 +2,13 @@
 import styles from "./Footer.module.scss";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { useServiceModal } from "@/contexts/ServiceModalContext";
+import { useTheme } from "@/contexts/ThemeContext";
 import Image from "next/image";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { openServiceModal } = useServiceModal();
+  const { theme } = useTheme();
 
   return (
     <footer className={styles.footer}>
@@ -15,7 +17,12 @@ export const Footer = () => {
           {/* Company Info */}
           <div className={styles.column}>
             <h3 className={styles.logo}>
-              <Image src='/celpi-logo.svg' alt="Logotipo Celpi" width={60} height={60} />
+              <Image
+                src={theme === 'dark' ? '/logoLight.svg' : '/celpi-logo.svg'}
+                alt="Logotipo Celpi"
+                width={60}
+                height={60}
+              />
             </h3>
             <p className={styles.description}>
               Expertos en constitución de empresas, gestión de devolución de IVA y asesoría tributaria integral. Facilitamos el crecimiento legal y fiscal de tu negocio.
@@ -68,7 +75,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Phone size={18} />
-                <span>+56 9 1234 5678</span>
+                <span>+56 9 3651 6591</span>
               </li>
               <li>
                 <MapPin size={18} />
