@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { Hero } from '@/components/hero/Hero';
 import styles from '@/styles/PaymentResponse.module.scss';
 
 export default function Failure() {
@@ -12,6 +13,16 @@ export default function Failure() {
         <meta name="description" content="Hubo un problema al procesar tu pago. Por favor, intenta nuevamente o contacta con soporte." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
+      <div style={{ marginTop: '-110px' }}>
+        <Hero
+          image="https://images.pexels.com/photos/5224591/pexels-photo-5224591.jpeg"
+          pretitle="Lo sentimos"
+          title={<>Pago Rechazado</>}
+          description="Hubo un problema al procesar tu pago. Verifica tus datos e intenta nuevamente o contáctanos por WhatsApp."
+          buttonLabel="Volver al inicio"
+          onButtonClick={() => router.push('/')}
+        />
+      </div>
       <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.iconError}>

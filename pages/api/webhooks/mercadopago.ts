@@ -25,9 +25,9 @@ export default async function handler(
   }
 
   try {
-    console.log('🔔 Webhook recibido de Mercado Pago');
-    console.log('Headers:', req.headers);
-    console.log('Body:', req.body);
+    // console.log('🔔 Webhook recibido de Mercado Pago');
+    // console.log('Headers:', req.headers);
+    // console.log('Body:', req.body);
 
     // Validar firma del webhook (opcional pero recomendado en producción)
     const xSignature = req.headers['x-signature'] as string;
@@ -46,7 +46,7 @@ export default async function handler(
         console.error('⚠️ Firma inválida - posible ataque');
         return res.status(401).json({ error: 'Invalid signature' });
       }
-      console.log('✅ Firma validada correctamente');
+      // console.log('✅ Firma validada correctamente');
     }
 
     const webhookData: WebhookData = req.body;
@@ -55,7 +55,7 @@ export default async function handler(
     // Solo procesar notificaciones de pagos
     if (type === 'payment') {
       const paymentId = data.id;
-      console.log('💰 Payment ID:', paymentId);
+      // console.log('💰 Payment ID:', paymentId);
 
       // Configurar cliente de Mercado Pago
       const accessToken = process.env.MP_ACCESS_TOKEN;
@@ -69,9 +69,9 @@ export default async function handler(
       // Obtener detalles completos del pago
       const paymentDetails = await payment.get({ id: paymentId });
 
-      console.log('📊 Estado del pago:', paymentDetails.status);
-      console.log('💵 Monto:', paymentDetails.transaction_amount, paymentDetails.currency_id);
-      console.log('👤 Pagador:', paymentDetails.payer?.email);
+      // console.log('📊 Estado del pago:', paymentDetails.status);
+      // console.log('💵 Monto:', paymentDetails.transaction_amount, paymentDetails.currency_id);
+      // console.log('👤 Pagador:', paymentDetails.payer?.email);
 
       // Solo enviar email si el pago fue aprobado o está pendiente
       if (paymentDetails.status === 'approved' || paymentDetails.status === 'pending') {
@@ -89,7 +89,7 @@ export default async function handler(
           currency: paymentDetails.currency_id || 'CLP'
         };
 
-        console.log('📧 Preparando envío de email:', emailData);
+        // console.log('📧 Preparando envío de email:', emailData);
 
         // Enviar email vía Google Apps Script
         const googleScriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
@@ -105,13 +105,13 @@ export default async function handler(
             });
 
             const emailResult = await emailResponse.json();
-            console.log('✅ Email enviado:', emailResult);
+            // console.log('✅ Email enviado:', emailResult);
           } catch (emailError) {
             console.error('❌ Error enviando email:', emailError);
             // No fallar el webhook si el email falla
           }
         } else {
-          console.warn('⚠️ NEXT_PUBLIC_GOOGLE_SCRIPT_URL no configurado - no se enviarán emails');
+          // console.warn('⚠️ NEXT_PUBLIC_GOOGLE_SCRIPT_URL no configurado - no se enviarán emails');
         }
       }
     }

@@ -51,7 +51,7 @@ export const Services = () => {
 
   const handleReserveContabilidad = useCallback(async () => {
     try {
-      console.log("Iniciando checkout de Mercado Pago...");
+      // console.log("Iniciando checkout de Mercado Pago...");
 
       // Llamar a la API para crear la preferencia de pago
       const response = await fetch('/api/create-preference', {
@@ -67,7 +67,7 @@ export const Services = () => {
       });
 
       const data = await response.json();
-      console.log('Response data:', data);
+      // console.log('Response data:', data);
 
       if (!response.ok) {
         console.error('Error response:', data);
@@ -76,7 +76,7 @@ export const Services = () => {
 
       // Redirigir al checkout de Mercado Pago
       if (data.init_point) {
-        console.log('Redirigiendo a:', data.init_point);
+        // console.log('Redirigiendo a:', data.init_point);
         window.location.href = data.init_point;
       } else {
         throw new Error('No se recibió la URL de pago');
@@ -88,18 +88,26 @@ export const Services = () => {
   }, []);
 
   const handleContactContabilidad = useCallback(() => {
-    console.log("Contactar Gestión y Constitución");
+    // console.log("Contactar Gestión y Constitución");
+    const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56936516591";
+    const message = encodeURIComponent("¡Hola! Me gustaría obtener más información sobre el servicio de Constitución de Empresas.");
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, "_blank");
     closeServiceModal();
   }, [closeServiceModal]);
 
   const handleContactAsesoria = useCallback(() => {
-    console.log("Contactar Asesoría");
+    // console.log("Contactar Asesoría");
+    const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56936516591";
+    const message = encodeURIComponent("¡Hola! Me gustaría obtener más información sobre el servicio de Asesoría Tributaria Mensual.");
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, "_blank");
     closeServiceModal();
   }, [closeServiceModal]);
 
   const handleReserveConstitucionIva = useCallback(async () => {
     try {
-      console.log("Iniciando checkout de Mercado Pago...");
+      // console.log("Iniciando checkout de Mercado Pago...");
 
       // Llamar a la API para crear la preferencia de pago
       const response = await fetch('/api/create-preference', {
@@ -115,7 +123,7 @@ export const Services = () => {
       });
 
       const data = await response.json();
-      console.log('Response data:', data);
+      // console.log('Response data:', data);
 
       if (!response.ok) {
         console.error('Error response:', data);
@@ -124,7 +132,7 @@ export const Services = () => {
 
       // Redirigir al checkout de Mercado Pago
       if (data.init_point) {
-        console.log('Redirigiendo a:', data.init_point);
+        // console.log('Redirigiendo a:', data.init_point);
         window.location.href = data.init_point;
       } else {
         throw new Error('No se recibió la URL de pago');
@@ -136,7 +144,11 @@ export const Services = () => {
   }, []);
 
   const handleContactConstitucionIva = useCallback(() => {
-    console.log("Contactar Constitución con Devolución IVA");
+    // console.log("Contactar Constitución con Devolución IVA");
+    const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56936516591";
+    const message = encodeURIComponent("¡Hola! Me gustaría obtener más información sobre el servicio de Constitución de Inmobiliaria para Devolución de IVA.");
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, "_blank");
     closeServiceModal();
   }, [closeServiceModal]);
 
@@ -200,7 +212,7 @@ export const Services = () => {
         isOpen={openModal === "contabilidad"}
         onClose={closeServiceModal}
         title="Gestión y Constitución de Empresas"
-        description="Servicio integral para la creación y formalización de tu empresa. Nos encargamos de todos los trámites legales, tributarios y administrativos necesarios para que tu negocio esté completamente operativo. El valor por la prestación de estos servicios es de $100.000 + IVA."
+        description={<>Servicio integral para la creación y formalización de tu empresa. Nos encargamos de todos los trámites legales, tributarios y administrativos necesarios para que tu negocio esté completamente operativo. El valor por la prestación de estos servicios es de <strong>$100.000 + IVA</strong>.</>}
         includes={[
           "Redacción y constitución de sociedad",
           "Inicio de actividades",
@@ -224,7 +236,7 @@ export const Services = () => {
         isOpen={openModal === "constitucion-iva"}
         onClose={closeServiceModal}
         title="Constituye tu inmobiliaria para devolución de IVA"
-        description="Servicio especializado para la constitución de inmobiliarias con gestión de devolución de IVA, optimizando tu inversión inicial. El valor por la prestación de estos servicios es de $150.000."
+        description={<>Servicio especializado para la constitución de inmobiliarias con gestión de devolución de IVA, optimizando tu inversión inicial. El valor por la prestación de estos servicios es de <strong>$150.000</strong>.</>}
         includes={[
           "Redacción y constitución de sociedad",
           "Dirección tributaria",
@@ -239,7 +251,7 @@ export const Services = () => {
         isOpen={openModal === "asesoria"}
         onClose={closeServiceModal}
         title="Asesoría Tributaria"
-        description="Servicio integral de gestión administrativa, contable y tributaria diseñado para empresas que buscan optimizar sus procesos financieros. Incluye representación ante instituciones, administración de información contable, facturación y reuniones quincenales de coordinación. El valor base es de 1,00 UF mensual. Al sobrepasar los 10 movimientos mensuales, se aplica un costo adicional de 0,5 UF por cada 25 movimientos extras."
+        description={<>Servicio integral de gestión administrativa, contable y tributaria diseñado para empresas que buscan optimizar sus procesos financieros. Incluye representación ante instituciones, administración de información contable, facturación y reuniones quincenales de coordinación. El valor base es de <strong>1,00 UF mensual</strong>. Al sobrepasar los 10 movimientos mensuales, se aplica un costo adicional de <strong>0,5 UF por cada 25 movimientos extras</strong>.</>}
         includes={[
           "Representación y trámites administrativos ante instituciones y empresas",
           "Administración y gestión de información financiera, contable y tributaria",

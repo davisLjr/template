@@ -5,7 +5,7 @@ interface ServiceModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  description: string;
+  description: string | React.ReactNode;
   includes: string[];
   hasReserveButton?: boolean;
   onReserve?: () => void;
@@ -103,7 +103,7 @@ export const ServiceModal = ({
           <div className={styles.buttons}>
             {hasReserveButton && onReserve && (
               <button className={`${styles.button} ${styles.primary}`} onClick={onReserve}>
-                Reservar
+                Pagar servicio
               </button>
             )}
             <button className={`${styles.button} ${styles.secondary}`} onClick={onContact}>

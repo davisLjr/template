@@ -50,7 +50,7 @@ export default async function handler(
 
     const preference = new Preference(client);
 
-    console.log('🔍 Modo de operación:', isTestMode ? 'TEST/SANDBOX' : 'PRODUCCIÓN');
+    // console.log('🔍 Modo de operación:', isTestMode ? 'TEST/SANDBOX' : 'PRODUCCIÓN');
 
     // Preparar el body de la preferencia
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
@@ -77,23 +77,23 @@ export default async function handler(
       statement_descriptor: 'CELPI',
     };
 
-    console.log('📋 Preference body:', JSON.stringify(preferenceBody, null, 2));
+    // console.log('📋 Preference body:', JSON.stringify(preferenceBody, null, 2));
 
     // Crear preferencia de pago
     const result = await preference.create({
       body: preferenceBody,
     });
 
-    console.log('✅ Preferencia creada:', result.id);
-    console.log('🔗 Init point:', result.init_point);
-    console.log('🔗 Sandbox point:', result.sandbox_init_point);
+    // console.log('✅ Preferencia creada:', result.id);
+    // console.log('🔗 Init point:', result.init_point);
+    // console.log('🔗 Sandbox point:', result.sandbox_init_point);
 
     // CAMBIO: Usar init_point en lugar de sandbox para evitar restricciones geográficas
     // Con credenciales de cuenta de prueba, init_point también funciona en modo test
     const checkoutUrl = result.init_point;
 
-    console.log('🎯 URL de checkout final:', checkoutUrl);
-    console.log('🌍 Usando init_point normal con credenciales de prueba');
+    // console.log('🎯 URL de checkout final:', checkoutUrl);
+    // console.log('🌍 Usando init_point normal con credenciales de prueba');
 
     if (!checkoutUrl) {
       throw new Error('No se pudo generar la URL de checkout');
