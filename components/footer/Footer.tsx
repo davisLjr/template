@@ -27,20 +27,22 @@ export const Footer = () => {
             <p className={styles.description}>
               Expertos en constitución de empresas, gestión de devolución de IVA y asesoría tributaria integral. Facilitamos el crecimiento legal y fiscal de tu negocio.
             </p>
-            <div className={styles.socialLinks}>
-              <a href="#" aria-label="Facebook" className={styles.socialIcon}>
-                <Facebook size={20} />
-              </a>
-              <a href="#" aria-label="Twitter" className={styles.socialIcon}>
-                <Twitter size={20} />
-              </a>
-              <a href="#" aria-label="Instagram" className={styles.socialIcon}>
-                <Instagram size={20} />
-              </a>
-              <a href="#" aria-label="LinkedIn" className={styles.socialIcon}>
-                <Linkedin size={20} />
-              </a>
-            </div>
+            {/*             
+              <div className={styles.socialLinks}>
+                <a href="#" aria-label="Facebook" className={styles.socialIcon}>
+                  <Facebook size={20} />
+                </a>
+                <a href="#" aria-label="Twitter" className={styles.socialIcon}>
+                  <Twitter size={20} />
+                </a>
+                <a href="#" aria-label="Instagram" className={styles.socialIcon}>
+                  <Instagram size={20} />
+                </a>
+                <a href="#" aria-label="LinkedIn" className={styles.socialIcon}>
+                  <Linkedin size={20} />
+                </a>
+              </div>
+            */}
           </div>
 
           {/* Services */}

@@ -351,6 +351,15 @@
 }
 
 // Responsive adjustments
+@media (max-width: 768px) {
+  .imageContainer {
+    max-height: 300px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
 @media (max-width: 480px) {
   .serviceTitle {
     font-size: 14px;
