@@ -152,6 +152,50 @@ export const Services = () => {
     closeServiceModal();
   }, [closeServiceModal]);
 
+  const handleReservePrueba = useCallback(async () => {
+    try {
+      console.log("Iniciando checkout de prueba por $1.000");
+
+      const response = await fetch('/api/create-preference', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: 'Servicio de Prueba',
+          quantity: 1,
+          price: 1000, // $1.000 CLP
+        }),
+      });
+
+      const data = await response.json();
+      console.log('Response data:', data);
+
+      if (!response.ok) {
+        console.error('Error response:', data);
+        throw new Error(data.error || 'Error al crear la preferencia de pago');
+      }
+
+      if (data.init_point) {
+        console.log('Redirigiendo a:', data.init_point);
+        window.location.href = data.init_point;
+      } else {
+        throw new Error('No se recibió la URL de pago');
+      }
+    } catch (error) {
+      console.error('Error al procesar el pago:', error);
+      alert(`Hubo un error al procesar el pago: ${error instanceof Error ? error.message : 'Error desconocido'}\n\nRevisa la consola del navegador para más detalles.`);
+    }
+  }, []);
+
+  const handleContactPrueba = useCallback(() => {
+    const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56936516591";
+    const message = encodeURIComponent("¡Hola! Me gustaría obtener más información sobre el servicio de prueba.");
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, "_blank");
+    closeServiceModal();
+  }, [closeServiceModal]);
+
   return (
     <section id="servicios" className={styles.services}>
       <div className={styles.container}>
@@ -203,6 +247,19 @@ export const Services = () => {
             description="Optimización tributaria y planificación fiscal estratégica para maximizar tus beneficios y cumplir normativas."
             buttonText="Ver más"
             onClick={() => openServiceModal("asesoria")}
+          />
+
+<ServiceCard
+            icon={
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Ícono de prueba">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            }
+            title="Servicio de Prueba"
+            description="Servicio de prueba para validar el flujo de pago. Valor: $1.000 CLP."
+            buttonText="Ver más"
+            onClick={() => openServiceModal("prueba")}
           />
         </div>
       </div>
@@ -265,6 +322,21 @@ export const Services = () => {
         ]}
         hasReserveButton={false}
         onContact={handleContactAsesoria}
+      />
+
+<ServiceModal
+        isOpen={openModal === "prueba"}
+        onClose={closeServiceModal}
+        title="Servicio de Prueba"
+        description={<>Este es un servicio de prueba para validar el flujo completo de pago con Mercado Pago. El valor es de <strong>$1.000 CLP</strong>.</>}
+        includes={[
+          "Validación del flujo de pago",
+          "Prueba de integración con Mercado Pago",
+          "Verificación de webhook",
+        ]}
+        hasReserveButton={true}
+        onReserve={handleReservePrueba}
+        onContact={handleContactPrueba}
       />
     </section>
   );

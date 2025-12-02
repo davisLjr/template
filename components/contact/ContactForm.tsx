@@ -8,7 +8,7 @@ export const ContactForm = () => {
     phone: "",
     email: "",
     message: "",
-    hiddenField: "", // 🕵️ honeypot invisible
+    hiddenField: "", // honeypot invisible
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -41,7 +41,7 @@ export const ContactForm = () => {
       return;
     }
 
-    // 🕵️ Protección anti-bot: si el honeypot tiene algo, se cancela el envío
+    //  Protección anti-bot: si el honeypot tiene algo, se cancela el envío
     if (formData.hiddenField) {
       // console.warn("Intento de bot bloqueado");
       setIsSubmitting(false);
@@ -98,7 +98,7 @@ export const ContactForm = () => {
         </p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
-          {/* 🕵️ Campo honeypot oculto */}
+          {/* Campo honeypot oculto */}
           <input
             type="text"
             name="hiddenField"

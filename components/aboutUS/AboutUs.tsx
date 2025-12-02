@@ -49,7 +49,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ className = '' }) => {
           <div className={styles.mediaSection}>
             <div className={styles.imageContainer}>
               <img 
-                src="https://images.pexels.com/photos/5224591/pexels-photo-5224591.jpeg" 
+                src="https://res.cloudinary.com/dljbxdjl7/image/upload/v1764705476/about_kyff8h.jpg" 
                 alt="Team meeting in modern office" 
                 className={styles.mainImage}
               />
