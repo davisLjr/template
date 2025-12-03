@@ -68,7 +68,7 @@ export default function Home() {
 
       <div style={{ marginTop: '-110px' }}>
         <Hero
-          image="https://images.pexels.com/photos/5224591/pexels-photo-5224591.jpeg"
+          image="https://res.cloudinary.com/dljbxdjl7/image/upload/q_auto,w_1200,f_webp,c_limit/v1764758657/hero_lftpbg.jpg"
           pretitle="Tu Empresa en Regla"
           title={
             <>
