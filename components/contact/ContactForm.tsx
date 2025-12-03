@@ -123,6 +123,7 @@ export const ContactForm = () => {
                 required
                 className={styles.input}
                 placeholder="Nombre"
+                autoComplete="given-name"
               />
             </div>
 
@@ -139,6 +140,7 @@ export const ContactForm = () => {
                 required
                 className={styles.input}
                 placeholder="Apellido"
+                autoComplete="family-name"
               />
             </div>
           </div>
@@ -157,6 +159,7 @@ export const ContactForm = () => {
                 required
                 className={styles.input}
                 placeholder="+56 0 0000 0000"
+                autoComplete="tel"
               />
             </div>
 
@@ -173,6 +176,7 @@ export const ContactForm = () => {
                 required
                 className={styles.input}
                 placeholder="tu_mail@gmail.com"
+                autoComplete="email"
               />
             </div>
           </div>
@@ -190,6 +194,7 @@ export const ContactForm = () => {
               className={styles.textarea}
               placeholder="Cuéntanos los detalles de tu consulta o proyecto..."
               rows={5}
+              autoComplete="off"
             />
           </div>
 
