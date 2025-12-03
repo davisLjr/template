@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactNode, useCallback, useMemo } from "react";
 
-export type ServiceType = "contabilidad" | "asesoria" | "constitucion-iva" | "prueba" | null;
+export type ServiceType = "contabilidad" | "asesoria" | "constitucion-iva" | null;
 
 interface ServiceModalContextType {
   openModal: ServiceType;

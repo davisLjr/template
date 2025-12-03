@@ -12,7 +12,7 @@ Descripción: Estudio Contable Profesional en Chile
 
 /* SITE */
 
-Última actualización: 2025/11/07
+Última actualización: 2025/12/03
 Lenguaje: Español / Spanish
 Doctype: HTML5
 IDE: Visual Studio Code
@@ -36,4 +36,3 @@ Pasarela de Pago: Mercado Pago Chile
                        |  |     | |  |
                        '--'     '--'--'
 
-    Hecho con ❤️ y ☕ en España
